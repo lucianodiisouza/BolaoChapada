@@ -30,6 +30,8 @@
 			</select>
 		</div>
 	</div>
+
+	fr
 	<?php 
 		if (isset($_POST['envia'])) {
 			//testes
