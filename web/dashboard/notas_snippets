@@ -1,0 +1,128 @@
+Bolão Chapada - App Android + PWA / Dashboard (php)
+Basear UI/UX em Boostrap na Web
+Basear UI/UX em Material Design no Mobile
+
+Database bolaoChapada
+
+table development usuario
+
+id
+usuario
+email
+senha
+nome
+time
+sexo
+rua
+numero
+bairro
+cidade
+estado
+nome_banco
+agencia_banco
+conta_banco
+operacao_banco
+cpf
+saldo_financeiro
+saldo_pontos
+avatar_usuario
+
+
+table development time
+id
+nomeTime
+siglaTime
+bandeira
+
+rodada
+id
+nome da rodada
+timeA
+timeB
+dataPartida
+horaPartida
+localPartida
+
+
+rodada possui jogos
+
+jogo
+
+cadastrar jogo
+
+vincular jogo à rodada
+
+
+table development rodada s
+
+id
+nome
+dataInicio
+dataTermino
+
+table development jogos
+id
+TimeA
+placar
+TimeB
+placar
+local
+data
+
+					Curso
+					<?php
+						if (empty($resultado["curso"])) {
+					?>
+						<select name="curso" class="form-control">
+							<option value="" selected disabled hidden>Selecione...</option>
+							<optgroup label="Presencial"></optgroup>
+							<?php
+								$sql = "SELECT * FROM cvf_cursos WHERE tipo = 1";
+								$exibe = mysqli_query($conecta, $sql);
+								while ($row = mysqli_fetch_assoc($exibe)){
+									echo("<option value='".$row['curso']."'>".$row['curso']."</option>");
+								}
+							?>
+							<optgroup label="À Distância"></optgroup>
+							<?php
+								$sql = "SELECT * FROM cvf_cursos WHERE tipo = 2";
+								$exibe = mysqli_query($conecta, $sql);
+								while ($row = mysqli_fetch_assoc($exibe)){
+									echo("<option value='".$row['curso']."'>".$row['curso']."</option>");
+								}
+							?>
+						</select>
+					<?php
+						}else{
+					?>
+						<input type="text" class="form-control" value="<?php echo $resultado['curso'] ?>" name="curso" readonly>		
+					<?php
+						}
+					?>
+
+table development palpites
+
+id
+id_rodada
+id_usuario
+jogoAMandante
+jogoAVisitante
+jogoBMandante
+jogoBVisitante
+jogoCMandante
+jogoCVisitante
+jogoDMandante
+jogoDVisitante
+jogoEMandante
+jogoEVisitante
+jogoFMandante
+jogoFVisitante
+jogoGMandante
+jogoGVisitante
+jogoHMandante
+johoHVisitante
+jogoIMandante
+jogoIVisitante
+jogoJMandante
+jogoJVisitante
+data_palpite (timestamp)
