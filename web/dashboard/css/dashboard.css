@@ -37,3 +37,10 @@
 	padding: 10px;
 	align-content: center;
 }
+.block_login{
+	border-radius: 10px;
+	background-color: #069;
+	margin-top: 150px;
+	margin: 20px;
+	padding: 10px;
+}
