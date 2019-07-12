@@ -1,5 +1,5 @@
 
-<?php require('_validar_login.php'); ?>
+
 </head>
 <body style="background-image: url(img/bg_transparente.png) !important; background-repeat: no-repeat; background-size: cover;">
 	<!-- Barra de Menu - Será fixa no topo -->
@@ -13,21 +13,17 @@
 		</button>
 		  <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: flex-end;">
 		    <ul class="navbar-nav">
-		      <li class="nav-item active">
+		      <!-- <li class="nav-item active">
 		        <a class="nav-link" href="jogos/">Jogos</a>
 		      </li>
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		      <li class="nav-item">
-		        <a class="nav-link" href="rodadas/">Rodadas</a>
+		        <a class="nav-link" href="../rodadas/">Rodadas</a>
 		      </li>
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		      <li class="nav-item">
-		        <a class="nav-link" href="times/">Times</a>
-		      </li>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		      <li class="nav-item">
-		        <a class="nav-link" href="usuarios/">Usuários</a>
-		      </li>
+		        <a class="nav-link" href="../usuarios/">Usuários</a>
+		      </li> -->
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		        <div class="dropdown">
 				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,7 +35,7 @@
 				    <a class="dropdown-item" href="#">Configuração</a>
 				    <a class="dropdown-item" href="#">Regras</a>
 				    <div class="dropdown-divider"></div>
-				    <a class="dropdown-item" href="inc/logout.php">Desconectar</a>
+				    <a class="dropdown-item" href="../inc/logout.php">Desconectar</a>
 				  </div>
 				</div>		      
 		    </ul>

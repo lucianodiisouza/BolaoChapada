@@ -1,9 +1,7 @@
 <!-- Arquivo de índice da aplicação  -->
-<?php require('../_header.php');
-	$usuarioAtual = 'teste@mail.com';
-?>
+<?php require('../_header_sub.php'); ?>
 <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-<?php require('../_navegar.php'); ?>
+<?php require('../_navegar_sub.php'); ?>
 <div class="container-fluid" style="width: 90% !important;">
 <br>
 <br>

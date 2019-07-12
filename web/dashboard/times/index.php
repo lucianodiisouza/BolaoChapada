@@ -1,13 +1,13 @@
 <!-- Arquivo de índice da aplicação  -->
-<?php require('../_header.php'); ?>
+<?php require('../_header_sub.php'); ?>
 <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-<?php require('../_navegar.php'); ?>
+<?php require('../_navegar_sub.php'); ?>
 <div class="container-fluid" style="width: 90% !important;">
 <br>
 <br>
 <br>
 	<div class="row">
-		<div class="col-md-6 colunaCustom">
+		<div class="col colunaCustom">
 			<div class="header_coluna">
 				<h4>Times</h4>
 				<a href="novo.php" class="btn btn-success">Novo Time</a>						

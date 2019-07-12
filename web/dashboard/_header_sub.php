@@ -1,6 +1,7 @@
 <?php
-session_start();
-require('inc/conexao.php');
+	session_start();
+	require('../inc/conexao.php');
+	require('../_validar_login_sub.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
