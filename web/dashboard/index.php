@@ -72,7 +72,7 @@
 							</thead>
 							<tbody>
 								<?php 
-									$sql = "SELECT * FROM mensagens where id_para = '$usuarioAtual' ORDER BY id DESC limit 10;";
+									$sql = "SELECT * FROM mensagens where id_para = 1 ORDER BY id DESC limit 10;";
 									$qry = mysqli_query($conecta, $sql);
 									while ($linha = mysqli_fetch_array($qry)) {
 								?>

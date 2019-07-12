@@ -1,6 +1,4 @@
-<?php require('inc/conexao.php'); 
-$usuarioAtual = 'teste@mail.com';
-?>
+<?php require('inc/conexao.php');?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
