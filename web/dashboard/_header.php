@@ -1,4 +1,9 @@
-<?php require('inc/conexao.php');?>
+<?php
+session_start();
+require('inc/conexao.php');
+require('validar_login.php');
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

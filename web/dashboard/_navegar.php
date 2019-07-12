@@ -34,7 +34,7 @@
 				    <a class="dropdown-item" href="#">Configuração</a>
 				    <a class="dropdown-item" href="#">Regras</a>
 				    <div class="dropdown-divider"></div>
-				    <a class="dropdown-item" href="#">Desconectar</a>
+				    <a class="dropdown-item" href="inc/logout.php">Desconectar</a>
 				  </div>
 				</div>		      
 		    </ul>

@@ -1,4 +1,6 @@
-<?php require('_header.php'); ?>
+<?php 
+	require('_header.php');
+?>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 <?php require('_navegar.php'); ?>
 <!-- _header -->
@@ -12,6 +14,7 @@
 			<div class="row">
 				<div class="col-md-6 colunaCustom">
 					<div class="header_coluna">
+						<?php echo $_SESSION['usuario']; ?>
 						<h4>Usuários</h4>
 						<a href="usuarios/cadastrar.php" class="btn btn-success"><i class="fas fa-plus"></i></a>						
 					</div>
