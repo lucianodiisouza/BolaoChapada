@@ -4,7 +4,7 @@
 <body style="background-image: url(img/bg_transparente.png) !important; background-repeat: no-repeat; background-size: cover;">
 	<!-- Barra de Menu - Será fixa no topo -->
 	<nav class="navbar navbar-default fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: #C4E322;">
-		<a class="navbar-brand" href="../index.php">
+		<a class="navbar-brand" href="index.php">
 		    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 		    BolãoChapada
 		</a>
