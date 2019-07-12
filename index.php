@@ -1,5 +1,8 @@
+<?php
+	require('web/dashboard/inc/conexao.php');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<title>Site em Contrução</title>
 	<meta charset="UTF-8">
@@ -97,19 +100,10 @@
 						</div>
 
 						<div class="w-full">
-							<button type="submit" class="flex-c-m s1-txt2 size5 how-btn1 trans-04">
-								<input type="hidden" value="envia" name="envia">
-
-								Me avise!
-							</button>
+							<input type="submit" class="flex-c-m s1-txt2 size5 how-btn1 trans-04">
+							<input type="hidden" value="envia" name="envia">
 						</div>
-						<?php 
-						
-							require(web/dashboard/inc/conexao.php);
-
-							$conecta = mysqli_connect(SERVIDOR, USUARIO, SENHA, DB) or die(mysqli_connect_error());
-						
-							mysqli_set_charset($conecta, CHARSET) or die(mysqli_error($conecta));
+						<?php 					
 
 							if(isset($_POST['envia'])){
 								$nome = $_POST['nome'];
@@ -118,7 +112,7 @@
 								$SQL = "INSERT into cadastro_novidades (nome, email) VALUES ( '$nome', '$email' )";
 								
 								if ($conecta->query($sql) === TRUE) {
-									echo "Jogo cadastrado";
+									echo "Prontinho! Você já está na nossa lista VIP";
 								} else {
 									echo "Erro: " . $sql . "<br>" . $conecta->error;
 								}
