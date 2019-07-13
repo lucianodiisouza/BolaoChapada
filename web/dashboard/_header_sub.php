@@ -10,7 +10,7 @@
 	<meta name="author" content="Luciano dii Souza - Web Developer FullStack And MobileDev">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="O Bolão Chapada é uma iniciativa entre amigos para os amantes do Futebol! Entre, cadastre-se e se divirta! Usuários de Android poderão baixar nosso App na PlayStore!">
-
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 	<title>Dashboard - BolãoChapada</title>
 
 	<!-- Arquivos de StyleSheet e ThirdParty Libraries -->
