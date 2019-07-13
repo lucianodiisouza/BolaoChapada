@@ -132,7 +132,7 @@
 									<td><center><?php echo $linha["timeB"] ?></center></td>
 									<td><center><?php echo $data. " - " .$hora ?></center></td>
 									<!-- <td><?php echo $linha["local"] ?></td> -->
-									<td><center><a href="ver.php?id=<?php echo $linha["id"]?>"><i class="far fa-eye"></i></a></center></td>
+									<td><center><a href="jogos/ver.php?id=<?php echo $linha["id"]?>"><i class="far fa-eye"></i></a></center></td>
 								</tr>			
 								<?php
 									}									 
