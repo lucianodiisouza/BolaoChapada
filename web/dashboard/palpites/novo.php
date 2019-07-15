@@ -7,6 +7,15 @@
 <br>
 <br>
 <form method="post">
+	<?php 
+		$id_rodada = $_GET['id'];
+
+		// dados da rodada
+		$sql = "SELECT * FROM rodada WHERE id = $id_rodada;";
+		$qry = mysqli_query($conecta, $sql);
+		$dadosRodada = mysqli_fetch_assoc($qry);
+		$data = date( 'd-m-Y', strtotime($dadosRodada["dataTermino"]));
+	?>
 	<div class="header_FlexInicio">
 		<h4>Palpites</h4>
 	</div>
@@ -16,23 +25,206 @@
 		<input type="hidden" name="envia" value="envia">
 	</div>
 	<div class="row">
-		<div class="col-md-4">
-			<select name="rodada" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma rodada...</option>
-				<?php
-					$sql = "SELECT * FROM rodada ORDER BY dataTermino DESC;";
-					$qry = mysqli_query($conecta, $sql);
-					while ($resultado = mysqli_fetch_assoc($qry)){
-						// echo "funcionando";
-						echo "<option value='".$resultado['id']."'>".$resultado["nome"]."</option>";
-					}
-				?>
-			</select>
+		<div class="col">
+			Nº
+			<input type="text" name="id_rodada" value="<?php echo $id_rodada ?>" class="form-control" readonly >
+		</div>
+		<div class="col">
+			Rodada:
+			<input type="text" name="nomeRodada" value="<?php echo $dadosRodada['nome'] ?>" class="form-control" readonly>
+		</div>
+		<div class="col">
+			Limite:
+			<input type="text" name="dataRodada" value="<?php echo $data ?>" class="form-control" readonly>
 		</div>
 	</div>
 
-	fr
-	<?php 
+	<!-- colado -->
+	<div class="row">
+		<div class="col-md-3 block_palpite">
+			<?php 
+				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoA"]."";
+				$qryPartida = mysqli_query($conecta, $sqlPartida);
+				$partida = mysqli_fetch_assoc($qryPartida);
+				
+				$data = date( 'd/m', strtotime($partida["data"]));
+				$hora = date( 'H:i', strtotime($partida["hora"]));
+				// Fim do PHP								
+			?>
+			<center>
+				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+				<input type="number" name="placarA" class="placar_input"> vs <input type="number" name="placarB" class="placar_input">
+				<br><br>
+				<p class="small">
+					<?php 
+						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+					?>											
+				</p>
+			</center>
+		</div>
+		<div class="col-md-3 block_palpite">
+			<?php 
+				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoB"]."";
+				$qryPartida = mysqli_query($conecta, $sqlPartida);
+				$partida = mysqli_fetch_assoc($qryPartida);
+				
+				$data = date( 'd/m', strtotime($partida["data"]));
+				$hora = date( 'H:i', strtotime($partida["hora"]));
+				// Fim do PHP								
+			?>
+			<center>
+				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+				<input type="number" name="placarA" class="placar_input"> vs <input type="number" name="placarB" class="placar_input">
+				<br><br>
+				<p class="small">
+					<?php 
+						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+					?>											
+				</p>
+			</center>
+		</div>
+		<div class="col-md-3 block_palpite">
+			<?php 
+				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoC"]."";
+				$qryPartida = mysqli_query($conecta, $sqlPartida);
+				$partida = mysqli_fetch_assoc($qryPartida);
+				
+				$data = date( 'd/m', strtotime($partida["data"]));
+				$hora = date( 'H:i', strtotime($partida["hora"]));
+				// Fim do PHP								
+			?>
+			<center>
+				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+				<input type="number" name="placarA" class="placar_input"> vs <input type="number" name="placarB" class="placar_input">
+				<br><br>
+				<p class="small">
+					<?php 
+						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+					?>											
+				</p>
+			</center>
+		</div>
+	<div class="row">
+		<div class="col-md-3 block_palpite">
+			<?php 
+				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoD"]."";
+				$qryPartida = mysqli_query($conecta, $sqlPartida);
+				$partida = mysqli_fetch_assoc($qryPartida);
+				
+				$data = date( 'd/m', strtotime($partida["data"]));
+				$hora = date( 'H:i', strtotime($partida["hora"]));
+				// Fim do PHP								
+			?>
+			<center>
+				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+				<input type="number" name="placarA" class="placar_input"> vs <input type="number" name="placarB" class="placar_input">
+				<br><br>
+				<p class="small">
+					<?php 
+						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+					?>											
+				</p>
+			</center>
+		</div>
+			<div class="col-md-2 block_partida">
+				<?php 
+					$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoF"]."";
+					$qryPartida = mysqli_query($conecta, $sqlPartida);
+					$partida = mysqli_fetch_assoc($qryPartida);
+					
+					$data = date( 'd/m', strtotime($partida["data"]));
+					$hora = date( 'H:i', strtotime($partida["hora"]));
+					// Fim do PHP								
+				?>
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>											
+					</p>
+				</center>
+			</div>
+			<div class="col-md-2 block_partida">
+				<?php 
+					$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoG"]."";
+					$qryPartida = mysqli_query($conecta, $sqlPartida);
+					$partida = mysqli_fetch_assoc($qryPartida);
+					
+					$data = date( 'd/m', strtotime($partida["data"]));
+					$hora = date( 'H:i', strtotime($partida["hora"]));
+					// Fim do PHP								
+				?>
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>											
+					</p>
+				</center>
+			</div>
+			<div class="col-md-2 block_partida">
+				<?php 
+					$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoH"]."";
+					$qryPartida = mysqli_query($conecta, $sqlPartida);
+					$partida = mysqli_fetch_assoc($qryPartida);
+					
+					$data = date( 'd/m', strtotime($partida["data"]));
+					$hora = date( 'H:i', strtotime($partida["hora"]));
+					// Fim do PHP								
+				?>
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>											
+					</p>
+				</center>
+			</div>
+			<div class="col-md-2 block_partida">
+				<?php 
+					$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoI"]."";
+					$qryPartida = mysqli_query($conecta, $sqlPartida);
+					$partida = mysqli_fetch_assoc($qryPartida);
+					
+					$data = date( 'd/m', strtotime($partida["data"]));
+					$hora = date( 'H:i', strtotime($partida["hora"]));
+					// Fim do PHP								
+				?>
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>											
+					</p>
+				</center>
+			</div>
+		<div class="col-md-2 block_partida">
+			<?php 
+				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoJ"]."";
+				$qryPartida = mysqli_query($conecta, $sqlPartida);
+				$partida = mysqli_fetch_assoc($qryPartida);
+				
+				$data = date( 'd/m', strtotime($partida["data"]));
+				$hora = date( 'H:i', strtotime($partida["hora"]));
+				// Fim do PHP								
+			?>
+			<center>
+				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+				<p class="small">
+					<?php 
+						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+					?>											
+				</p>
+			</center>
+		</div>											
+	</div>
+	<!-- colado  -->
+	<!-- uma linha -->
+		<?php 
 		if (isset($_POST['envia'])) {
 			//testes
 			$user_id = 'admin';

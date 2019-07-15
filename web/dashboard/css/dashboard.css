@@ -44,3 +44,20 @@
 	margin: 20px;
 	padding: 10px;
 }
+.teste{
+	font-size: 15px;
+	text-align: center;
+}
+.block_palpite{
+	border-radius: 10px;
+	background-color: #dedede;
+	margin: 25px;
+	padding: 10px;
+	align-content: center;
+}
+.placar_input{
+	width: 40px;
+	height: 38px;
+
+
+}
