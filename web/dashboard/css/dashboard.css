@@ -49,11 +49,11 @@
 	text-align: center;
 }
 .block_palpite{
-	border-radius: 10px;
+	border-radius: 5px;
 	background-color: #dedede;
+	margin-top:25px;
 	margin: 25px;
-	padding: 10px;
-	align-content: center;
+	min-width: 183px;
 }
 .placar_input{
 	width: 40px;

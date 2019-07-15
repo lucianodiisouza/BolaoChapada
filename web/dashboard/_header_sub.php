@@ -2,6 +2,11 @@
 	session_start();
 	require('../inc/conexao.php');
 	require('../_validar_login_sub.php');
+	$usuarioAtual = $_SESSION['usuario'];
+	$sql = "SELECT id from usuarios WHERE usuario = '{$usuarioAtual}'";
+	$qry = mysqli_query($conecta, $sql);
+	$resultado = mysqli_fetch_assoc($qry);
+	$idUsuario = $resultado['id'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

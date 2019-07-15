@@ -89,6 +89,7 @@ require('inc/conexao.php');
                             
                             if($linha == 1){
                                 $_SESSION['usuario'] = $usuario;
+                                $_SESSION['id'] = $id_usarioAtual;
                                 header('Location: index.php');
                                 exit();
                             }else{

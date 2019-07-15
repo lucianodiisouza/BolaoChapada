@@ -126,3 +126,54 @@ jogoIVisitante
 jogoJMandante
 jogoJVisitante
 data_palpite (timestamp)
+
+
+	<!-- uma linha -->
+	<div class="row">
+		<?php
+			// dados de cada partida
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada['jogoA']."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$dadosPartida = mysqli_fetch_assoc($qryPartida);
+		?>
+		<!-- foi usado Alt + 255 para adicionar recuo entre as rows (melhor que ficar brigando com css né? ) -->		 
+			<div class="col-md-2">
+			 Jogo A:
+			<input type="text" class="form-control teste" value="<?php echo $dadosPartida['nomeTimeA']; ?>" readonly>
+		</div>
+		<div class="col-md-1">
+		 
+			<input type="number" class="form-control">
+		</div>
+		<div class="col-md-1">
+		 
+			<input type="number" class="form-control">
+		</div>
+		<div class="col-md-2">
+	 
+			<input type="text" class="form-control" value="<?php echo $dadosPartida['nomeTimeB']; ?>" readonly>
+		</div>
+		<!-- foi usado Alt + 255 para adicionar recuo entre as rows (melhor que ficar brigando com css né? ) -->
+		<div class="col-md-2">
+		<?php
+			// dados de cada partida
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada['jogoB']."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$dadosPartida = mysqli_fetch_assoc($qryPartida);
+		?>	 
+			Jogo B: 
+			<input type="text" class="form-control teste" value="<?php echo $dadosPartida['nomeTimeA']; ?>" readonly>
+		</div>
+		<div class="col-md-1">
+		 
+			<input type="number" class="form-control">
+		</div>
+		<div class="col-md-1">
+		 
+			<input type="number" class="form-control">
+		</div>
+		<div class="col-md-2">
+	 
+		<input type="text" class="form-control" value="<?php echo $dadosPartida['nomeTimeB']; ?>" readonly>
+		</div>
+	</div>
