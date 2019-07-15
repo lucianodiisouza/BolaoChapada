@@ -175,7 +175,8 @@
 									<td><?php echo $linha["nome"] ?></td>
 									<td><?php echo $dataInicio.' - '.$horaInicio ?></td>
 									<td><?php echo $dataTermino.' - '.$horaTermino ?></td>
-									<td><center><a href="rodadas/ver.php?id=<?php echo $linha["id"]?>"><i class="far fa-eye"></i></a></center></td>
+									<td><center><a href="rodadas/ver.php?id=<?php echo $linha["id"]?>" title="Ver Rodada"><i class="far fa-eye"></i></a></center></td>
+									<td><center><a href="palpites/novo.php?id=<?php echo $linha["id"]?>" title="Dar meu palpite"><i class="fas fa-coins"></i></a></center></td>
 								</tr>
 								<?php 
 									}
