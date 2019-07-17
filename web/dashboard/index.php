@@ -196,18 +196,61 @@
 				<div class="col colunaCustom">
 					<div class="header_coluna">
 						<h4>Palpites</h4>
-						<a href="palpites/novo.php" class="btn btn-success"><i class="fas fa-plus"></i></a>
 					</div>
 					<hr>
-					<p align="center">
-						<a href="#" title="Visualizar usuários cadastrados" class="bloco_link">
-							<i class="far fa-eye fa-4x"></i>
-						</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#" title="Adicionar Usuário" class="bloco_link">
-							<i class="fas fa-plus fa-4x"></i>
-						</a>
-					</p>
+					<div class="table-responsive">
+						<table class="table table-hover table-sm">
+							<thead>
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Usuario</th>
+									<th scope="col">Data</th>
+									<th scope="col">Jogo A</th>
+									<th scope="col">Jogo B</th>
+									<th scope="col">Jogo C</th>
+									<th scope="col">Jogo D</th>
+									<th scope="col">Jogo E</th>
+									<th scope="col">Jogo F</th>
+									<th scope="col">Jogo G</th>
+									<th scope="col">Jogo H</th>
+									<th scope="col">Jogo I</th>
+									<th scope="col">Jogo J</th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$sql = "SELECT * FROM palpites ORDER BY id DESC;";
+									$qry = mysqli_query($conecta, $sql);
+									while ($linha = mysqli_fetch_array($qry)) {
+									
+									$data = date( 'H:i', strtotime($linha["dataPalpite"]));
+									$hora = date( 'd/m', strtotime($linha["dataPalpite"]));
+
+								?>
+								<tr>
+									<td>#<?php echo $linha["id"] ?></td>
+									<td><?php echo $linha["idUsuario"] ?></td>
+									<td><?php echo $data.' - '.$hora ?></td>
+									<td><?php echo $linha["jogoAMandante"]." x ".$linha["jogoAVisitante"]  ?></td>
+									<td><?php echo $linha["jogoBMandante"]." x ".$linha["jogoBVisitante"]  ?></td>
+									<td><?php echo $linha["jogoCMandante"]." x ".$linha["jogoCVisitante"]  ?></td>
+									<td><?php echo $linha["jogoDMandante"]." x ".$linha["jogoDVisitante"]  ?></td>
+									<td><?php echo $linha["jogoEMandante"]." x ".$linha["jogoEVisitante"]  ?></td>
+									<td><?php echo $linha["jogoFMandante"]." x ".$linha["jogoFVisitante"]  ?></td>
+									<td><?php echo $linha["jogoGMandante"]." x ".$linha["jogoGVisitante"]  ?></td>
+									<td><?php echo $linha["jogoHMandante"]." x ".$linha["jogoHVisitante"]  ?></td>
+									<td><?php echo $linha["jogoIMandante"]." x ".$linha["jogoIVisitante"]  ?></td>
+									<td><?php echo $linha["jogoJMandante"]." x ".$linha["jogoJVisitante"]  ?></td>
+
+									<td><center><a href="palpites/novo.php?id=<?php echo $linha["idRodada"]?>" title="Adicionar novo palpite"><i class="fas fa-coins"></i></a></center></td>
+								</tr>
+								<?php 
+									}
+								?>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 			<!-- bloco -->
