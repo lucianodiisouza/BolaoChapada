@@ -21,7 +21,15 @@
 			</div>
 			<div class="col">
 				Usuário:
-				<input type="text" name="usuario" class="form-control" value="<?php echo $resultado["usuario"]; ?>" required>
+				<input type="text" name="usuario" class="form-control" value="<?php echo $resultado["usuario"]; ?>" maxlength="16" minlength="4" required>
+			</div>
+			<div class="col">
+				Tipo:
+				<select name="tipoUsuario" class="form-control" required>
+					<option value="<?php echo $resultado['role'] ?>" hidden selected><?php echo $resultado['role'] ?></option>
+					<option value="admin">Administrador</option>
+					<option value="user">Usuário</option>					
+				</select>
 			</div>
 			<div class="col-md-2">
 				Senha:
@@ -29,7 +37,7 @@
 			</div>
 			<div class="col">
 				Nome:
-				<input type="text" name="nome" class="form-control" value="<?php echo $resultado["nome"]; ?>" required>
+				<input type="text" name="nome" class="form-control" value="<?php echo $resultado["nome"]; ?>" maxlength="100" required>
 			</div>
 			<div class="col">
 				Email:
@@ -57,45 +65,45 @@
 		<div class="row">
 			<div class="col">
 				Rua:
-				<input type="text" name="rua" class="form-control" value="<?php echo $resultado["rua"]; ?>" required>
+				<input type="text" name="rua" class="form-control" value="<?php echo $resultado["rua"]; ?>" maxlength="255">
 			</div>
 			<div class="col-md-2">
 				Nº:
-				<input type="text" name="numero" class="form-control" value="<?php echo $resultado["numero"]; ?>" required>
+				<input type="text" name="numero" class="form-control" value="<?php echo $resultado["numero"]; ?>" maxlength="10">
 			</div>
 			<div class="col">
 				Bairro:
-				<input type="text" name="bairro" class="form-control" value="<?php echo $resultado["bairro"]; ?>" required>
+				<input type="text" name="bairro" class="form-control" value="<?php echo $resultado["bairro"]; ?>" maxlength="50">
 			</div>
 			<div class="col">
 				Cidade:
-				<input type="text" name="cidade" class="form-control" value="<?php echo $resultado["cidade"]; ?>" required>
+				<input type="text" name="cidade" class="form-control" value="<?php echo $resultado["cidade"]; ?>" maxlength="50" required>
 			</div>
 			<div class="col-md-2">
 				Estado:
-				<input type="text" name="estado" class="form-control" value="<?php echo $resultado["estado"]; ?>" required>
+				<input type="text" name="estado" class="form-control" value="<?php echo $resultado["estado"]; ?>" maxlength="30" required>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 				Banco:
-				<input type="text" name="banco" class="form-control" value="<?php echo $resultado["banco"]; ?>" required>
+				<input type="text" name="banco" class="form-control" value="<?php echo $resultado["banco"]; ?>" maxlength="50">
 			</div>
 			<div class="col-md-2">
 				Agência:
-				<input type="text" name="agencia" class="form-control" value="<?php echo $resultado["agencia"]; ?>" required>
+				<input type="text" name="agencia" class="form-control" value="<?php echo $resultado["agencia"]; ?>" maxlength="10">
 			</div>
 			<div class="col-md-2">
 				Conta:
-				<input type="text" name="conta" class="form-control" value="<?php echo $resultado["conta"]; ?>" required>
+				<input type="text" name="conta" class="form-control" value="<?php echo $resultado["conta"]; ?>" required maxlength="10">
 			</div>
 			<div class="col-md-1">
 				Operação:
-				<input type="text" name="operacao" class="form-control" value="<?php echo $resultado["operacao"]; ?>">
+				<input type="text" name="operacao" class="form-control" value="<?php echo $resultado["operacao"]; ?>" maxlength="">
 			</div>
 			<div class="col-md-3">
 				CPF:
-				<input type="text" name="cpf" class="form-control" value="<?php echo $resultado["cpf"]; ?>" required>
+				<input type="text" name="cpf" class="form-control" value="<?php echo $resultado["cpf"]; ?>" maxlength="9">
 			</div>				
 		</div>
 		<!--<div class="row">
@@ -117,6 +125,7 @@
 		<?php 
 			if (isset($_POST["envia"])) {
 				$usuario 		= $_POST['usuario'];
+				$tipoUsuario	= $_POST['tipoUsuario'];
 				$senha 			= md5($_POST['senha']);
 				$nome 			= $_POST['nome'];
 				$email 			= $_POST['email'];
@@ -135,7 +144,7 @@
 				$operacao 		= $_POST['operacao'];
 				$cpf 			= $_POST['cpf'];
 
-				$sql = "UPDATE usuarios SET usuario='$usuario', nome='$nome', email='$email', meutime='$meutime', telefone='$telefone', celular='$celular', rua='$rua', numero='$numero', bairro='$bairro', cidade='$cidade', banco='$banco', agencia='$agencia', conta='$conta', operacao='$operacao', cpf='$cpf'  WHERE ID = $id";
+				$sql = "UPDATE usuarios SET usuario='$usuario', role='$tipoUsuario', nome='$nome', email='$email', meutime='$meutime', telefone='$telefone', celular='$celular', rua='$rua', numero='$numero', bairro='$bairro', cidade='$cidade', banco='$banco', agencia='$agencia', conta='$conta', operacao='$operacao', cpf='$cpf'  WHERE ID = $id";
 
 						if ($conecta->query($sql) === TRUE) {
 							echo "Registro salvo com sucesso! <a href='visualiza.php?id=$id'><b>Clique para atualizar</b></a>";
