@@ -83,7 +83,7 @@ require('inc/conexao.php');
                         if (isset($_POST['login'])) {
                             $usuario = $_POST['usuario'];
                             $senha = $_POST['senha'];
-                            $sql = "SELECT id, usuario FROM usuarios WHERE usuario = '{$usuario}' AND senha = md5('{$senha}');";
+                            $sql = "SELECT id, usuario FROM usuarios WHERE usuario = '{$usuario}' AND senha = md5('{$senha}') AND role = 'admin';";
                             $consulta = mysqli_query($conecta, $sql);
                             $linha = mysqli_num_rows($consulta);
                             

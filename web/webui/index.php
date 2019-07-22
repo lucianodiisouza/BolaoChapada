@@ -1,10 +1,16 @@
 <?php 
 	require('_header.php');
+	$usuarioAtual = $_SESSION['usuario'];
+	$sql = "SELECT * FROM usuarios where usuario = '$usuarioAtual'";
+	$qry = mysqli_query($conecta, $sql);
+	$usuarioDados = mysqli_fetch_assoc($qry);
 ?>
 <link rel="stylesheet" type="text/css" href="css/webui.css">
+</head>
+<body>
 <!-- _header -->
-<!-- mobile_Navigation -->
-<nav class="navbar navbar-light bg-light" style="background-color: #f5f5f5 !important ;">
+<!-- meno do mobile -->
+<nav class="navbar navbar-light bg-light fixed-top" style="background-color: #f5f5f5 !important; -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75);">
 	<a href="#" class="navbar-brand">
 		<div class="userProfile">
 		</div>
@@ -12,18 +18,28 @@
 	</a>
 	<!-- <a href="#" class="navbar-brand"><img src="img/avatar.png" alt="Imagem do usuario" width="64px" height="64px" style="border-radius: 32px;" ></a> -->
 	<div class="nomeUsuario">
-		<p class="headerP">Luciano dii Souza<br>
-			<small>Saldo: <sup>T$</sup></small>15
+		<p class="headerP"><?php echo $usuarioDados['nome'] ?><br>
+			<small>Saldo: <sup>T$</sup></small>
+			<?php if($usuarioDados['saldo'] == 0){ echo "0"; }else{ echo $usuarioDados['saldo']; } ?>
 		</p>
 	</div>
 </nav>
+<br>
+<br>
+<br>
+<br>
+<!-- menu do mobile -->
 <div class="container-fluid">
 	<div class="row linhaCustom">
 		<div class="col">
-			Pontuação
+			<p>
+				Pontuação
+			</p>
 		</div>
 		<div class="col">
-			Posição
+			<p>
+				Posição
+			</p>
 		</div>
 	</div>
 	<div class="row">
@@ -110,11 +126,18 @@
 			</table>
 		</div>
 	</div>
-	<center>
-		<p>
-			BolãoChapada - <a href="https://thecodelovers.com.br/">#</a>
-		</p>
-	</center>
+</div>
+<div class="rodape">
+	<p>
+		BolãoChapada - <a href="https://thecodelovers.com.br/">#</a> &nbsp;
+	</p>
+	<div class="footer-btn">
+		<a href="inc/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
+		<a href="#" class="btn btn-danger"><i class="fas fa-question"></i></a>
+	</div>
+</div>
+<div class="img_bg">
+
 </div>
 <!-- mobile_Navigation -->
 <?php require('_footer.php'); ?>

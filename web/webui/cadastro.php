@@ -10,7 +10,7 @@ require('inc/conexao.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="O Bolão Chapada é uma iniciativa entre amigos para os amantes do Futebol! Entre, cadastre-se e se divirta! Usuários de Android poderão baixar nosso App na PlayStore!">
 
-	<title>Dashboard - BolãoChapada</title>
+	<title>Cadastro Bolão Chapada</title>
 
 	<!-- Arquivos de StyleSheet e ThirdParty Libraries -->
 	<!-- css meu -->
@@ -52,7 +52,7 @@ require('inc/conexao.php');
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="usuario" placeholder="usuário" class="form-control" required><br>
+                            <input type="text" name="usuario" placeholder="Digite o seu nome de usuário" class="form-control" required><br>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -61,7 +61,16 @@ require('inc/conexao.php');
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                            <input type="password" name="senha" placeholder="senha" class="form-control" required><br>
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control" required><br>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="password" name="senha" placeholder="Senha" class="form-control" required><br>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -71,43 +80,43 @@ require('inc/conexao.php');
                         </div>
                         <div class="col-md-4">
                         <center>
-                            <button type="submit" value="Entrar" name="entrar" class=" btn btn-primary">Entrar</button>
+                            <button type="submit" value="Entrar" name="entrar" class=" btn btn-primary">Cadastrar</button>
                             <button type="reset" value="Limpar" name="limpar" class=" btn btn-danger">Limpar</button>
-                            <input type="hidden" value="login" name="login" />
-                        </center>
-                        </div>
-                        <div class="col-md-4">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <br>
-                            <br>
-                        </div>
-                        <div class="col-md-4">
-                        <center>
-                            <a href="cadastro.php">Não possui uma conta? Cadastre-se</a>
+                            <input type="hidden" value="cadastra" name="cadastra" />
                         </center>
                         </div>
                         <div class="col-md-4">
                         </div>
                     </div>
                      <?php
-                        if (isset($_POST['login'])) {
+                        if (isset($_POST['cadastra'])) {
                             $usuario = $_POST['usuario'];
-                            $senha = $_POST['senha'];
-                            $sql = "SELECT id, usuario FROM usuarios WHERE usuario = '{$usuario}' AND senha = md5('{$senha}');";
-                            $consulta = mysqli_query($conecta, $sql);
-                            $linha = mysqli_num_rows($consulta);
+                            $check = mysqli_query($conecta, "SELECT * FROM usuarios WHERE usuario = '$usuario';");
+                            $existeUsuario = mysqli_num_rows($check);
                             
-                            if($linha == 1){
-                                $_SESSION['usuario'] = $usuario;
-                                header('Location: index.php');
-                                exit();
+                            if($existeUsuario == 0){
+                                // vars
+                                $senha = md5($_POST['senha']);
+                                $nome = $_POST['nome'];
+
+                                $sql = "INSERT INTO usuarios (avatar, usuario, role, nome, senha) VALUES ('img/avatar_default.png', '$usuario', 'user', '$nome', '$senha');";
+                                                                
+                                if ($conecta->query($sql) === TRUE) {
+                                    $_SESSION['usuario'] = $usuario;
+                                    header('Location: index.php');
+                                } else {
+                                    echo "Erro: " . $sql . "<br>" . $conecta->error;
+                                }
+                                // redirecionar e passar a $_SESSION['usuario'];
+                               
                             }else{
-                                $_SESSION['nao_autenticado'] = true;
-                                header('Location: login.php');
-                                exit();
+                                ?>
+                                        <br>
+                                    <div class="alert alert-danger" role="alert">
+                                        <center><small>Este usuário já existe no nosso banco de dados!</small></center>
+                                        <center><small><a href="redefinir_senha.php">Redefinir senha</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.php">Fazer login</a></small></center>
+                                    </div>
+                                <?php
                             }
                         }
                         ?>

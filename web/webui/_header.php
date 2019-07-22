@@ -1,6 +1,8 @@
 <?php
+error_reporting(0);
 session_start();
 require('inc/conexao.php');
+require('_validar_login.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

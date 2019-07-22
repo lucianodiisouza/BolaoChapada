@@ -177,3 +177,7 @@ data_palpite (timestamp)
 		<input type="text" class="form-control" value="<?php echo $dadosPartida['nomeTimeB']; ?>" readonly>
 		</div>
 	</div>
+
+
+
+	table development ranking 
