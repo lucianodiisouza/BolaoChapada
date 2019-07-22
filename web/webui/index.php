@@ -133,7 +133,7 @@
 	</p>
 	<div class="footer-btn">
 		<a href="inc/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
-		<a href="#" class="btn btn-danger"><i class="fas fa-question"></i></a>
+		<a href="ajudaOnline.php" class="btn btn-danger"><i class="fas fa-question"></i></a>
 	</div>
 </div>
 <div class="img_bg">

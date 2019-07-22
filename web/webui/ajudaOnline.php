@@ -25,9 +25,6 @@ require('inc/conexao.php');
         <div class="container">
             <div class="block_login">
                 <br><br><br><br>
-                <center>
-                    <img src="img/bg.png" alt="Bolão Chapada" title="Bolão Chapada" style="width: 128px; height: 128px;">
-                </center>
                 <form method="post">
                     <?php
                         if(isset($_SESSION['nao_autenticado'])):
@@ -48,6 +45,17 @@ require('inc/conexao.php');
                         unset($_SESSION['nao_autenticado']);
                     ?>
                 
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-success" role="alert">
+                                <center>Enviar mensagem ao Administrador</center>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>    
                     <div class="row">
                         <div class="col-md-4">
                         </div>
@@ -125,7 +133,7 @@ require('inc/conexao.php');
                             <?php
                             
                             if($send === TRUE){
-                                header('Location: login.php');
+                                header('Location: index.php');
                             }
                         }
                     ?>
