@@ -106,16 +106,6 @@
 				<input type="text" name="cpf" class="form-control" value="<?php echo $resultado["cpf"]; ?>" maxlength="9">
 			</div>				
 		</div>
-		<!--<div class="row">
-			<div class="col-md-3">
-				Saldo:
-				<input type="text" name="saldo" class="form-control">
-			</div>
-			<div class="col-md-3">
-				Pontuação:
-				<input type="text" name="saldo" class="form-control">
-			</div>
-		</div> -->
 		<br>
 		<div class="text-right">
 			<input type="submit" name="enviar" value="Enviar" class="btn btn-primary text-right">

@@ -11,7 +11,7 @@
 <!-- _header -->
 <!-- meno do mobile -->
 <nav class="navbar navbar-light bg-light fixed-top" style="background-color: #f5f5f5 !important; -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75);">
-	<a href="#" class="navbar-brand">
+	<a href="perfil.php" class="navbar-brand">
 		<div class="userProfile">
 		</div>
 		<span class="badge badge-success posicao">1°</span>
