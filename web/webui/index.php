@@ -61,8 +61,7 @@
 				</div>
 				<center>
 					<div class="iconGrid">
-						<a href="verRodada.php?id=<?php echo $resultado["id"]?>" title="Ver Rodada" class="btn btn-success txtBtn">Visualizar</a>
-						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a>
+						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a> 
 						<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
 					</div>
 				</center>
@@ -71,14 +70,6 @@
 		<?php		
 			}
 		?>
-	<div class="row">
-		<div class="col colunaCustom">
-			Ranking
-		</div>
-		<div class="col colunaCustom">
-			Ajuda
-		</div>
-	</div>
 	<div class="row linhaCustomTabela">
 		<div class="table-responsive">
 			<table class="table table-hover table-sm">
@@ -150,6 +141,7 @@
 </div>
 <div class="rodape">
 	<p>
+			<a href="regulamento.php">Regulamento</a>
 		BolãoChapada - <a href="https://thecodelovers.com.br/">#</a> &nbsp;
 	</p>
 	<div class="footer-btn">

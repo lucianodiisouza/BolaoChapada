@@ -104,10 +104,14 @@ body {
 .iconGrid{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+    justify-content: flex-end;
+    margin-top: 18px;
 }
 .txtBtn{
     font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+.thTxt{
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
 }

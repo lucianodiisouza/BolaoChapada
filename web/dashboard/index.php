@@ -224,8 +224,8 @@
 									$qry = mysqli_query($conecta, $sql);
 									while ($linha = mysqli_fetch_array($qry)) {
 									
-									$data = date( 'H:i', strtotime($linha["dataPalpite"]));
-									$hora = date( 'd/m', strtotime($linha["dataPalpite"]));
+									$hora = date( 'H:i', strtotime($linha["dataPalpite"]));
+									$data = date( 'd/m', strtotime($linha["dataPalpite"]));
 
 								?>
 								<tr>
