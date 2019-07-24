@@ -45,6 +45,8 @@
 	<div class="row">
 		<div class="col colunaCustom">
 			Rodada #34
+			<br>
+			<a href="rodada.php?id=4">Ver</a>
 		</div>
 		<div class="col colunaCustom">
 			Rodada #35 <img src="img/start.png" class="badge posicao">
