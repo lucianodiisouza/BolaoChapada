@@ -76,7 +76,7 @@
 				<p class="small">
 					<?php 
 						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>
+					?>											
 				</p>
 			</center>
         </div>

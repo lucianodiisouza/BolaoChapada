@@ -12,11 +12,10 @@
 <!-- meno do mobile -->
 <nav class="navbar navbar-light bg-light fixed-top" style="background-color: #f5f5f5 !important; -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75); box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.75);">
 	<a href="perfil.php" class="navbar-brand">
-		<div class="userProfile">
+		<div class="userProfile" style="background-image: url('<?php echo $usuarioDados['avatar'] ?>');">
 		</div>
-		<span class="badge badge-success posicao">1°</span>
+		<span class="badge badge-success posicao"><?php echo $usuarioDados['id'] ?></span>
 	</a>
-	<!-- <a href="#" class="navbar-brand"><img src="img/avatar.png" alt="Imagem do usuario" width="64px" height="64px" style="border-radius: 32px;" ></a> -->
 	<div class="nomeUsuario">
 		<p class="headerP"><?php echo $usuarioDados["nome"] ?><br>
 			<small>Saldo: <sup>T$</sup></small>
@@ -30,20 +29,20 @@
 <br>
 <!-- menu do mobile -->
 <div class="container-fluid">
-	<div class="row linhaCustom">
-		<div class="col">
+	 
+	<div class="row">
+		<div class="col colunaCustom">
 			<p>
 				Pontuação
 			</p>
 		</div>
-		<div class="col">
+		<div class="col colunaCustom">
 			<p>
 				Posição
 			</p>
 		</div>
 	</div>
 	<!-- rodadas (ultima e penultima) -->
-	<div class="row">
 		<?php
 			$qry = mysqli_query($conecta, "SELECT * FROM rodada ORDER BY id DESC limit 2");
 			while($resultado = mysqli_fetch_array($qry)){
@@ -52,19 +51,26 @@
 			$dataT = date( 'd/m', strtotime($resultado["dataTermino"]));
 
 		?>
+		<div class="row">
 			<div class="col colunaCustomCopy">
-				<small>
-					<center>
-						<?php echo "#".$resultado['id']." ".$resultado['nome'] ?><br>
+				<div class="header_coluna">
+					<p><?php echo "#".$resultado['id']." - ".$resultado['nome'] ?> </p>
+					<p>
 						<?php echo $dataI." a ".$dataT ?>
-					</center>
-				</small>
-
+					</p>
+				</div>
+				<center>
+					<div class="iconGrid">
+						<a href="verRodada.php?id=<?php echo $resultado["id"]?>" title="Ver Rodada" class="btn btn-success txtBtn">Visualizar</a>
+						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a>
+						<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
+					</div>
+				</center>
 			</div>
+		</div>
 		<?php		
 			}
 		?>
-	</div>
 	<div class="row">
 		<div class="col colunaCustom">
 			Ranking

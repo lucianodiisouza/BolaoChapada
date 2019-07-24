@@ -13,7 +13,6 @@ body {
   }
   
 .userProfile{
-    background-image: url('../img/avatar.png');
     background-size: cover;
     width: 64px;
     height: 64px;
@@ -25,9 +24,6 @@ body {
     float: right;
     margin-top: -15px;
     border-radius: 25px;
-}
-.colunaMobile{
-
 }
 
 .linhaCustom{
@@ -70,9 +66,7 @@ body {
     height: 150px;
     bottom: 0;
 }
-.header_coluna{
 
-}
 .placar_input{
 	width: 40px;
 	height: 38px;
@@ -89,4 +83,31 @@ body {
     padding: 10px;
     flex-direction: row; 
     align-items: center;
+}
+.header_coluna{
+	display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.header_flexInicio{
+	display: flex;
+	justify-content: flex-start;
+}
+.header_flexFinal{
+	display: flex;
+	justify-content: flex-end;
+}
+.icon{
+    width: 32px;
+    height: 32px;
+}
+.iconGrid{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.txtBtn{
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
 }
