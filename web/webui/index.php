@@ -18,7 +18,7 @@
 	</a>
 	<!-- <a href="#" class="navbar-brand"><img src="img/avatar.png" alt="Imagem do usuario" width="64px" height="64px" style="border-radius: 32px;" ></a> -->
 	<div class="nomeUsuario">
-		<p class="headerP"><?php echo $usuarioDados['nome'] ?><br>
+		<p class="headerP"><?php echo $usuarioDados["nome"] ?><br>
 			<small>Saldo: <sup>T$</sup></small>
 			<?php if($usuarioDados['saldo'] == 0){ echo "0"; }else{ echo $usuarioDados['saldo']; } ?>
 		</p>
@@ -42,15 +42,28 @@
 			</p>
 		</div>
 	</div>
+	<!-- rodadas (ultima e penultima) -->
 	<div class="row">
-		<div class="col colunaCustom">
-			Rodada #34
-			<br>
-			<a href="rodada.php?id=4">Ver</a>
-		</div>
-		<div class="col colunaCustom">
-			Rodada #35 <img src="img/start.png" class="badge posicao">
-		</div>
+		<?php
+			$qry = mysqli_query($conecta, "SELECT * FROM rodada ORDER BY id DESC limit 2");
+			while($resultado = mysqli_fetch_array($qry)){
+
+			$dataI = date( 'd/m', strtotime($resultado["dataInicio"]));
+			$dataT = date( 'd/m', strtotime($resultado["dataTermino"]));
+
+		?>
+			<div class="col colunaCustomCopy">
+				<small>
+					<center>
+						<?php echo "#".$resultado['id']." ".$resultado['nome'] ?><br>
+						<?php echo $dataI." a ".$dataT ?>
+					</center>
+				</small>
+
+			</div>
+		<?php		
+			}
+		?>
 	</div>
 	<div class="row">
 		<div class="col colunaCustom">
@@ -64,7 +77,7 @@
 		<div class="table-responsive">
 			<table class="table table-hover table-sm">
 				<thead>
-					<th>Posição</th>					
+					<th>Posição</th>
 					<th>Usuário</th>
 					<th>Pontos</th>
 				</thead>

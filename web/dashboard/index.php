@@ -167,7 +167,7 @@
 									
 									$horaInicio = date( 'H:i', strtotime($linha["dataInicio"]));
 									$dataInicio = date( 'd/m', strtotime($linha["dataInicio"]));
-									$horaTermino = date( 'H:i', strtotime($linha["dataTermino"]));									
+									$horaTermino = date( 'H:i', strtotime($linha["dataTermino"]));
 									$dataTermino = date( 'd/m', strtotime($linha["dataTermino"]));
 								?>
 								<tr>
