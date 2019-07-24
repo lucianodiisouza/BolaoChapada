@@ -181,3 +181,9 @@ data_palpite (timestamp)
 
 
 	table development ranking 
+	id
+	idRodada
+	idUsuario
+	pontos
+	
+	

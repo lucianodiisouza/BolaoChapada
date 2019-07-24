@@ -8,7 +8,7 @@
 <br>
 <form method="post">
 	<div class="header_FlexInicio">
-		<h4>Times</h4>
+		<h4>Jogos</h4>
 	</div>
 	<div class="header_flexFinal">
 		<a href="index.php" class="btn btn-danger">Voltar</a> &nbsp;
@@ -23,8 +23,10 @@
 					<?php
 						$sql = "SELECT * FROM times order by nome asc";
 						$exibe = mysqli_query($conecta, $sql);
-						while ($row = mysqli_fetch_assoc($exibe)){
-							echo("<option value='".$row['sigla']."'>".$row['nome']."</option>");
+						while ($rowA = mysqli_fetch_assoc($exibe)){
+							?>
+							<option value="<?php echo [($rowA['sigla']). ($rowA['nome'])]; ?>"><?php echo $rowA['nome']; ?></option>
+						<?php
 						}
 					?>
 				</select>
@@ -36,8 +38,9 @@
 					<?php
 						$sql = "SELECT * FROM times order by nome asc";
 						$exibe = mysqli_query($conecta, $sql);
-						while ($row = mysqli_fetch_assoc($exibe)){
-							echo("<option value='".$row['sigla']."'>".$row['nome']."</option>");
+						while ($rowB = mysqli_fetch_assoc($exibe)){
+							$nomeB = $rowB['nome'];
+							echo("<option value='".$rowB['sigla']."'>".$rowB['nome']."</option>");
 						}
 					?>
 				</select>
@@ -54,21 +57,21 @@
 			</div>
 			<div class="col">
 				Local:
-				<input type="text" name="local" class="form-control" required>
+				<input type="text" name="local" class="form-control">
 			</div>
 		</div>
 	</div>
 	<?php 
 		if (isset($_POST['envia'])) {
-
+			$nomeTimeA = $_POST['$nomeA'];
+			$nomeTimeB = $_POST['$nomeB'];
 			$timeMandante = $_POST['timeMandante'];
 			$timeVisitante = $_POST['timeVisitante'];
 			$data = $_POST['data'];
 			$hora = $_POST['hora'];
 			$local = $_POST['local'];
 
-			$sql = "INSERT INTO jogos (timeA, timeB, data, hora, local) VALUES ( '$timeMandante', '$timeVisitante', '$data', '$hora', '$local' )";
-
+			$sql = "INSERT INTO jogos (timeA, nomeTimeA, nomeTimeB, timeB, data, hora, local) VALUES ( '$timeMandante', '$nomeTimeA', '$nomeTimeB', '$timeVisitante', '$data', '$hora', '$local' )";
 			if ($conecta->query($sql) === TRUE) {
 				    echo "Jogo cadastrado";
 				} else {
