@@ -23,10 +23,8 @@
 					<?php
 						$sql = "SELECT * FROM times order by nome asc";
 						$exibe = mysqli_query($conecta, $sql);
-						while ($rowA = mysqli_fetch_assoc($exibe)){
-							?>
-							<option value="<?php echo [($rowA['sigla']). ($rowA['nome'])]; ?>"><?php echo $rowA['nome']; ?></option>
-						<?php
+						while ($row = mysqli_fetch_assoc($exibe)){
+							echo("<option value='".$row['id']."'>".$row['nome']."</option>");
 						}
 					?>
 				</select>
@@ -38,9 +36,8 @@
 					<?php
 						$sql = "SELECT * FROM times order by nome asc";
 						$exibe = mysqli_query($conecta, $sql);
-						while ($rowB = mysqli_fetch_assoc($exibe)){
-							$nomeB = $rowB['nome'];
-							echo("<option value='".$rowB['sigla']."'>".$rowB['nome']."</option>");
+						while ($row = mysqli_fetch_assoc($exibe)){
+							echo("<option value='".$row['id']."'>".$row['nome']."</option>");
 						}
 					?>
 				</select>
@@ -63,15 +60,25 @@
 	</div>
 	<?php 
 		if (isset($_POST['envia'])) {
-			$nomeTimeA = $_POST['$nomeA'];
-			$nomeTimeB = $_POST['$nomeB'];
-			$timeMandante = $_POST['timeMandante'];
-			$timeVisitante = $_POST['timeVisitante'];
+			$mandante = $_POST['timeMandante'];
+			$sql = "SELECT * FROM times WHERE id = $mandante";
+			$qry = mysqli_query($conecta, $sql);
+			$nomeTime1 = mysqli_fetch_assoc($qry);
+			$siglaTimeA = $nomeTime1['sigla'];
+			$nomeTimeA = $nomeTime1['nome'];
+			
+			$visitante = $_POST['timeVisitante'];
+			$sqlV = "SELECT * FROM times WHERE id = $visitante";
+			$qryV = mysqli_query($conecta, $sqlV);
+			$nomeTime2 = mysqli_fetch_assoc($qryV);
+			$siglaTimeB = $nomeTime2['sigla'];
+			$nomeTimeB = $nomeTime2['nome'];
+
 			$data = $_POST['data'];
 			$hora = $_POST['hora'];
 			$local = $_POST['local'];
 
-			$sql = "INSERT INTO jogos (timeA, nomeTimeA, nomeTimeB, timeB, data, hora, local) VALUES ( '$timeMandante', '$nomeTimeA', '$nomeTimeB', '$timeVisitante', '$data', '$hora', '$local' )";
+			$sql = "INSERT INTO jogos (timeA, nomeTimeA, nomeTimeB, timeB, data, hora, local) VALUES ( '$siglaTimeA', '$nomeTimeA', '$nomeTimeB', '$siglaTimeB', '$data', '$hora', '$local' )";
 			if ($conecta->query($sql) === TRUE) {
 				    echo "Jogo cadastrado";
 				} else {

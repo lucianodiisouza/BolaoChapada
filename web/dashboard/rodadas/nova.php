@@ -40,10 +40,18 @@
 		</div>		
 	</div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			Nome:
 			<input type="text" name="nome" class="form-control" maxlength="250" minlength="5" required>
 		</div>
+		<div class="col-md-1">
+			Valor:
+			<select name="valor" class="form-control">
+				<option value="5" selected>5 T$</option>
+				<option value="10">10 T$</option>
+			</select>
+		</div>
+
 		<div class="col-md-4">
 			Início:
 			<input type="datetime-local" name="dataInicio" class="form-control" min>
@@ -238,8 +246,10 @@
 		if (isset($_POST['envia'])) {
 			// declarando as variaveis POST para mandar tudo para o DataBase em uma viagem só
 			$nome = $_POST["nome"];
+			$valor = $_POST["valor"];
 			$dataInicio = $_POST["dataInicio"];
 			$dataTermino = $_POST["dataTermino"];
+
 			// Agora começa a brincadeira! eu sequenciei os jogos com letras, pegando apenas o ID, quero ver como isso vai ficar depois hahaha
 			$jogoA = $_POST["jogoA"];
 			$jogoB = $_POST["jogoB"];
@@ -252,7 +262,7 @@
 			$jogoI = $_POST["jogoI"];
 			$jogoJ = $_POST["jogoJ"];
 
-			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
+			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, valor, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$valor', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
 
 					if ($conecta->query($sql) === TRUE) {
 					    $dadosGravados = true;
