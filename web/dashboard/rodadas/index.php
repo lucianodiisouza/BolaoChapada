@@ -25,7 +25,7 @@
 				?>
 				<div class="header_coluna">
 					<h3>#<?php echo $rodada["id"]." - ".$rodada["nome"] ?></h3> 
-					<p>Vigência: de <b><?php echo $dataInicio." - ".$horaInicio." a ".$dataTermino." - ".$horaTermino ?></b>&nbsp;&nbsp;&nbsp;<a href="ver.php?id=<?php echo $rodada['id'] ?>"><i class="far fa-eye"></i></a></p>
+					<p><strong>Valor T$ <?php echo $rodada['valor'] ?></strong> / Vigência: de <b><?php echo $dataInicio." - ".$horaInicio." a ".$dataTermino." - ".$horaTermino ?></b>&nbsp;&nbsp;&nbsp;<a href="ver.php?id=<?php echo $rodada['id'] ?>"><i class="far fa-eye"></i></a></p>
 				</div>
 					<div class="row">
 						<div class="col-md-2 block_partida">

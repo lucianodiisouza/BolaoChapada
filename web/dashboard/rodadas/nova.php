@@ -12,7 +12,7 @@
 	</div>
 	<!-- botoes do topo (enviar e voltar para a página anterior) -->
 	<div class="header_flexFinal">
-		<a href="index.php" class="btn btn-danger">Cancelar</a> &nbsp;
+		<a href="index.php" class="btn btn-danger">Voltar</a> &nbsp;
 		<button type="submit" class="btn btn-success">Salvar</button>
 		<input type="hidden" name="envia" value="envia">
 	<!-- botoes do topo (enviar e voltar para a página anterior) -->

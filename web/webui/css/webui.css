@@ -93,6 +93,10 @@ body {
 	display: flex;
 	justify-content: flex-start;
 }
+.header_flexInicioB{
+	display: flex;
+	justify-content: space-between;
+}
 .header_flexFinal{
 	display: flex;
 	justify-content: flex-end;

@@ -14,6 +14,7 @@
 		$sql = "SELECT * FROM rodada WHERE id = $id_rodada;";
 		$qry = mysqli_query($conecta, $sql);
 		$dadosRodada = mysqli_fetch_assoc($qry);
+		$custo = $dadosRodada["valor"];
 		$data = date( 'd-m-Y', strtotime($dadosRodada["dataTermino"]));
 	?>
 	<div class="header_FlexInicio">
@@ -289,10 +290,14 @@
 			$jogoIVisitante = $_POST['jogoIVisitante'];
 			$jogoJMandante = $_POST['jogoJMandante'];
 			$jogoJVisitante = $_POST['jogoJVisitante'];
+
 			
 			$sql = "INSERT INTO palpites ( idRodada, idUsuario, jogoAMandante, jogoAVisitante, jogoBMandante, jogoBVisitante, jogoCMandante, jogoCVisitante, jogoDMandante, jogoDVisitante, jogoEMandante, jogoEVisitante, jogoFMandante, jogoFVisitante, jogoGMandante, jogoGVisitante, jogoHMandante, jogoHVisitante, jogoIMandante, jogoIVisitante,  jogoJMandante, jogoJVisitante ) VALUES ( '$id_rodada', '$idUsuario','$jogoAMandante',	'$jogoAVisitante', '$jogoBMandante', '$jogoBVisitante', '$jogoCMandante', '$jogoCVisitante', '$jogoDMandante',	'$jogoDVisitante', '$jogoEMandante', '$jogoEVisitante', '$jogoFMandante', '$jogoFVisitante', '$jogoGMandante', '$jogoGVisitante', '$jogoHMandante', '$jogoHVisitante', '$jogoIMandante', '$jogoIVisitante', '$jogoJMandante', '$jogoJVisitante' )";
 
 			if ($conecta->query($sql) === TRUE) {
+					//pegar saldo atual
+					
+					$sqlDesc = "UPDATE usuarios SET "
 				    echo "Palpite Cadastrado! Boa Sorte :D ";
 				} else {
 				    echo "Erro: " . $sql . "<br>" . $conecta->error;

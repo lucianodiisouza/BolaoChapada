@@ -11,9 +11,9 @@
 		$dadosRodada = mysqli_fetch_assoc($qry);
 		$data = date( 'd-m-Y', strtotime($dadosRodada["dataTermino"]));
 	?>
-	<div class="header_FlexInicio">
-             
-        <h4>Palpites</h4>
+	<div class="header_FlexInicioB">
+	    <h4>Palpites</h4>
+		<p><small>Custo da rodada: <?php echo $dadosRodada['valor']; ?>T$</small></p>
 	</div>
 	<div class="row">
 		<div class="col">
@@ -271,76 +271,61 @@
         <button type="submit" class="btn btn-success">Enviar <i class="far fa-paper-plane"></i></button>
         <input type="hidden" name="envia" value="envia">
     </div>
-    <!-- testes -->
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-    </button> -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Confirmação</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Seu palpite foi enviado. Boa sorte!
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-            </div>
-        </div>
-    </div>
-    <!-- testes -->
   </div>
 </div>
 	<!-- colado  -->
 	<!-- uma linha -->
 		<?php 
 		if (isset($_POST['envia'])) {
-            // Variáveis POST
-            $idUsuario = $usuarioDados['id'];
-			$jogoAMandante = $_POST['jogoAMandante'];
-			$jogoAVisitante = $_POST['jogoAVisitante'];
-			$jogoBMandante = $_POST['jogoBMandante'];
-			$jogoBVisitante = $_POST['jogoBVisitante'];
-			$jogoCMandante = $_POST['jogoCMandante'];
-			$jogoCVisitante = $_POST['jogoCVisitante'];
-			$jogoDMandante = $_POST['jogoDMandante'];
-			$jogoDVisitante = $_POST['jogoDVisitante'];
-			$jogoEMandante = $_POST['jogoEMandante'];
-			$jogoEVisitante = $_POST['jogoEVisitante'];
-			$jogoFMandante = $_POST['jogoFMandante'];
-			$jogoFVisitante = $_POST['jogoFVisitante'];
-			$jogoGMandante = $_POST['jogoGMandante'];
-			$jogoGVisitante = $_POST['jogoGVisitante'];
-			$jogoHMandante = $_POST['jogoHMandante'];
-			$jogoHVisitante = $_POST['jogoHVisitante'];
-			$jogoIMandante = $_POST['jogoIMandante'];
-			$jogoIVisitante = $_POST['jogoIVisitante'];
-			$jogoJMandante = $_POST['jogoJMandante'];
-			$jogoJVisitante = $_POST['jogoJVisitante'];
-			
-			$sql = "INSERT INTO palpites ( idRodada, idUsuario, jogoAMandante, jogoAVisitante, jogoBMandante, jogoBVisitante, jogoCMandante, jogoCVisitante, jogoDMandante, jogoDVisitante, jogoEMandante, jogoEVisitante, jogoFMandante, jogoFVisitante, jogoGMandante, jogoGVisitante, jogoHMandante, jogoHVisitante, jogoIMandante, jogoIVisitante,  jogoJMandante, jogoJVisitante ) VALUES ( '$id_rodada', '$idUsuario','$jogoAMandante',	'$jogoAVisitante', '$jogoBMandante', '$jogoBVisitante', '$jogoCMandante', '$jogoCVisitante', '$jogoDMandante',	'$jogoDVisitante', '$jogoEMandante', '$jogoEVisitante', '$jogoFMandante', '$jogoFVisitante', '$jogoGMandante', '$jogoGVisitante', '$jogoHMandante', '$jogoHVisitante', '$jogoIMandante', '$jogoIVisitante', '$jogoJMandante', '$jogoJVisitante' )";
+			// verificar o saldo atual do usuário, subtrair do $custo. caso o novoSaldo seja >= 0, grava a partida, senão dé erro de saldo
+			$idUsuario = $usuarioDados['id'];
+			$custo = $dadosRodada['valor'];
+			$saldoAtual = $usuarioDados['saldo'];
+			$novoSaldo = $saldoAtual - $custo;
 
-			if ($conecta->query($sql) === TRUE) {
-                        ?>  
-                        <script>
-                            $("#exampleModalCenter").modal('show');
-                        </script>
-                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                Launch demo modal
-                                </button> -->
+				if($novoSaldo >= 0){
+					$atualizaSaldoSQL = "UPDATE usuarios SET saldo='$novoSaldo' WHERE id = $idUsuario";
+					$atualizaSaldoQRY = mysqli_query($conecta, $atualizaSaldoSQL);
+					
+					// Variáveis POST
+					$idUsuario = $usuarioDados['id'];
+					$jogoAMandante = $_POST['jogoAMandante'];
+					$jogoAVisitante = $_POST['jogoAVisitante'];
+					$jogoBMandante = $_POST['jogoBMandante'];
+					$jogoBVisitante = $_POST['jogoBVisitante'];
+					$jogoCMandante = $_POST['jogoCMandante'];
+					$jogoCVisitante = $_POST['jogoCVisitante'];
+					$jogoDMandante = $_POST['jogoDMandante'];
+					$jogoDVisitante = $_POST['jogoDVisitante'];
+					$jogoEMandante = $_POST['jogoEMandante'];
+					$jogoEVisitante = $_POST['jogoEVisitante'];
+					$jogoFMandante = $_POST['jogoFMandante'];
+					$jogoFVisitante = $_POST['jogoFVisitante'];
+					$jogoGMandante = $_POST['jogoGMandante'];
+					$jogoGVisitante = $_POST['jogoGVisitante'];
+					$jogoHMandante = $_POST['jogoHMandante'];
+					$jogoHVisitante = $_POST['jogoHVisitante'];
+					$jogoIMandante = $_POST['jogoIMandante'];
+					$jogoIVisitante = $_POST['jogoIVisitante'];
+					$jogoJMandante = $_POST['jogoJMandante'];
+					$jogoJVisitante = $_POST['jogoJVisitante'];
+					
+					$sql = "INSERT INTO palpites ( idRodada, idUsuario, jogoAMandante, jogoAVisitante, jogoBMandante, jogoBVisitante, jogoCMandante, jogoCVisitante, jogoDMandante, jogoDVisitante, jogoEMandante, jogoEVisitante, jogoFMandante, jogoFVisitante, jogoGMandante, jogoGVisitante, jogoHMandante, jogoHVisitante, jogoIMandante, jogoIVisitante,  jogoJMandante, jogoJVisitante ) VALUES ( '$id_rodada', '$idUsuario','$jogoAMandante',	'$jogoAVisitante', '$jogoBMandante', '$jogoBVisitante', '$jogoCMandante', '$jogoCVisitante', '$jogoDMandante',	'$jogoDVisitante', '$jogoEMandante', '$jogoEVisitante', '$jogoFMandante', '$jogoFVisitante', '$jogoGMandante', '$jogoGVisitante', '$jogoHMandante', '$jogoHVisitante', '$jogoIMandante', '$jogoIVisitante', '$jogoJMandante', '$jogoJVisitante' )";
+
+					if ($conecta->query($sql) === TRUE) {
+
+						?> 
+						<meta http-equiv="Refresh" content="0.1; url=index.php">
                         <?php
                     } else {
-                        echo "Erro: " . $sql . "<br>" . $conecta->error;
+						?>
+						<meta http-equiv="Refresh" content="0.1; url=saldoInsuficiente.php">
+						<?php
                     }				
-                }
+
+				}
+				// fim do primeiro if isset	
+			}
             ?>
     </form>
     <!-- rodadas -->
