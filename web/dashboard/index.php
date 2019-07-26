@@ -117,7 +117,7 @@
 							</thead>
 							<tbody>
 								<?php
-									$sql = "SELECT * FROM jogos ORDER BY data DESC;";
+									$sql = "SELECT * FROM jogos ORDER BY data DESC LIMIT 10;";
 									$qry = mysqli_query($conecta, $sql);
 									while ($linha = mysqli_fetch_array($qry)) {
 									
@@ -149,7 +149,7 @@
 					</div>
 					<hr>
 					<div class="table-responsive">
-						<table class="table table-hover table-sm">
+						<table id="minhaTabela2" class="table table-hover table-sm">
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
@@ -161,7 +161,7 @@
 							</thead>
 							<tbody>
 								<?php
-									$sql = "SELECT * FROM rodada ORDER BY id DESC;";
+									$sql = "SELECT * FROM rodada ORDER BY id DESC LIMIT 10;";
 									$qry = mysqli_query($conecta, $sql);
 									while ($linha = mysqli_fetch_array($qry)) {
 									
@@ -199,22 +199,22 @@
 					</div>
 					<hr>
 					<div class="table-responsive">
-						<table class="table table-hover table-sm">
+						<table id="minhaTabela" class="table table-hover table-sm">
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
 									<th scope="col">Usuario</th>
 									<th scope="col">Data</th>
-									<th scope="col">Jogo A</th>
-									<th scope="col">Jogo B</th>
-									<th scope="col">Jogo C</th>
-									<th scope="col">Jogo D</th>
-									<th scope="col">Jogo E</th>
-									<th scope="col">Jogo F</th>
-									<th scope="col">Jogo G</th>
-									<th scope="col">Jogo H</th>
-									<th scope="col">Jogo I</th>
-									<th scope="col">Jogo J</th>
+									<th scope="col">JogoA</th>
+									<th scope="col">JogoB</th>
+									<th scope="col">JogoC</th>
+									<th scope="col">JogoD</th>
+									<th scope="col">JogoE</th>
+									<th scope="col">JogoF</th>
+									<th scope="col">JogoG</th>
+									<th scope="col">JogoH</th>
+									<th scope="col">JogoI</th>
+									<th scope="col">JogoJ</th>
 									<th scope="col"></th>
 								</tr>
 							</thead>
@@ -242,7 +242,6 @@
 									<td><?php echo $linha["jogoHMandante"]." x ".$linha["jogoHVisitante"]  ?></td>
 									<td><?php echo $linha["jogoIMandante"]." x ".$linha["jogoIVisitante"]  ?></td>
 									<td><?php echo $linha["jogoJMandante"]." x ".$linha["jogoJVisitante"]  ?></td>
-
 									<td><center><a href="palpites/novo.php?id=<?php echo $linha["idRodada"]?>" title="Adicionar novo palpite"><i class="fas fa-coins"></i></a></center></td>
 								</tr>
 								<?php 
