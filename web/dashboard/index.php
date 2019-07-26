@@ -30,7 +30,7 @@
 				                <th scope="col"><center></center></th>
 				            </tr>
 				        </thead>
-						<tbody>
+						<tbody style="font-size: 14px;">
 							<?php 
 								$sql = "SELECT * FROM usuarios ORDER BY id DESC limit 10;";
 								$qry = mysqli_query($conecta, $sql);
