@@ -54,17 +54,13 @@
 		<div class="row">
 			<div class="col colunaCustomCopy">
 				<div class="header_coluna">
-					<p><?php echo "#".$resultado['id']." - ".$resultado['nome'] ?> </p>
-					<p>
-						<?php echo $dataI." a ".$dataT ?>
-					</p>
+					<?php echo "#".$resultado['id']." - ".$resultado['nome'] ?>
+					<?php echo $dataI." a ".$dataT ?>
 				</div>
-				<center>
 					<div class="iconGrid">
 						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a> 
 						<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
 					</div>
-				</center>
 			</div>
 		</div>
 		<?php		
