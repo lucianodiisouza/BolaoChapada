@@ -27,245 +27,337 @@
 	</div>
 
 	<!-- colado -->
+	<!-- palpite jogo -->
 	<div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoA"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP								
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoAMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoAVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoB"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP								
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoBMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoBVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoC"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP								
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoCMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoCVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoD"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP								
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoDMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoDVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoE"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP								
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoEMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoEVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-		</div>
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoA"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoA"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoAMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoAVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
 	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo B -->
 	<div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoF"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoFMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoFVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-                    <?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoG"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoGMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoGVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoH"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoHMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoHVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoI"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoIMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoIVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>											
-				</p>
-			</center>
-        </div>
-    </div>
-    <div class="row">
-		<div class="col block_palpite">
-			 
-			<?php 
-				$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoJ"]."";
-				$qryPartida = mysqli_query($conecta, $sqlPartida);
-				$partida = mysqli_fetch_assoc($qryPartida);
-				
-				$data = date( 'd/m', strtotime($partida["data"]));
-				$hora = date( 'H:i', strtotime($partida["hora"]));
-				// Fim do PHP
-			?>
-			<center>
-				<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-				<input type="number" name="jogoJMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoJVisitante" class="placar_input"  min="0" max="10">
-				<br><br>
-				<p class="small">
-					<?php 
-						echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-					?>
-				</p>
-			</center>
-        </div>
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoB"] == 'vazio'){ 
+		?>
+	
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoB"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoBMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoBVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
 	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo C -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoC"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoC"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoCMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoCVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo -->
+	<div class="row">
+		<?php 
+			// verificar se jogoC == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoD"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoD"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoDMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoDVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoE"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoE"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoEMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoEVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo F -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoF"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoF"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoFMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoFVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoG"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoG"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoGMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoGVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoH"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoH"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoHMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoHVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo I -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoI"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoI"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoIMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoIVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+	<!-- palpite jogo -->
+	<div class="row">
+		<?php 
+			// verificar se jogoA == 'vazio' { naoExibir(); } else { exibir(); }
+			if($dadosRodada["jogoJ"] == 'vazio'){ 
+		?>
+
+		<?php 
+			}else{
+			$sqlPartida = "SELECT * FROM jogos WHERE id = ".$dadosRodada["jogoJ"]."";
+			$qryPartida = mysqli_query($conecta, $sqlPartida);
+			$partida = mysqli_fetch_assoc($qryPartida);
+			
+			$data = date( 'd/m', strtotime($partida["data"]));
+			$hora = date( 'H:i', strtotime($partida["hora"]));
+		?>
+			<div class="col block_palpite">
+				<center>
+					<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+					<input type="number" name="jogoJMandante" class="placar_input"  min="0" max="10"> vs <input type="number" name="jogoJVisitante" class="placar_input"  min="0" max="10">
+					<br><br>
+					<p class="small">
+						<?php 
+							echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+						?>
+					</p>
+				</center>
+			</div>
+		<?php 
+			}
+		?>
+	</div>
+	<!-- palpite jogo -->
+    
     <div class="header_flexFinal">
         <a href="index.php" class="btn btn-danger">Voltar</a> &nbsp;
         <button type="submit" class="btn btn-success">Enviar <i class="far fa-paper-plane"></i></button>

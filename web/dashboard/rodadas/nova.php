@@ -64,8 +64,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			Jogo 1:
-			<select name="jogoA" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoA" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -81,8 +81,8 @@
 		</div>
 		<div class="col-md-6">
 			Jogo 2:
-			<select name="jogoB" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoB" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -100,8 +100,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			Jogo 3:
-			<select name="jogoC" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoC" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -117,8 +117,8 @@
 		</div>
 		<div class="col-md-6">
 			Jogo 4:
-			<select name="jogoD" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoD" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -136,8 +136,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			Jogo 5:
-			<select name="jogoE" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoE" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -153,8 +153,8 @@
 		</div>
 		<div class="col-md-6">
 			Jogo 6:
-			<select name="jogoF" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoF" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -172,8 +172,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			Jogo 7:
-			<select name="jogoG" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoG" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -189,8 +189,8 @@
 		</div>
 		<div class="col-md-6">
 			Jogo 8:
-			<select name="jogoH" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoH" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -208,8 +208,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			Jogo 9:
-			<select name="jogoI" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoI" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
@@ -225,8 +225,8 @@
 		</div>
 		<div class="col-md-6">
 			Jogo 10:
-			<select name="jogoJ" class="form-control" required>
-				<option value="" selected disabled hidden>Selecione uma partida...</option>
+			<select name="jogoJ" class="form-control">
+				<option value="vazio" selected default>Selecione uma partida...</option>
 				<?php
 					$sql = "SELECT * FROM jogos ORDER BY data DESC";
 					$exibe = mysqli_query($conecta, $sql);
