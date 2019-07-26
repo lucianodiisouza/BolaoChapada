@@ -63,5 +63,5 @@
 </div>
 <div class="img_bg">
 </div>
-<!-- mobile_Navigation -->
+<!-- rodape -->
 <?php require('_footer.php'); ?>

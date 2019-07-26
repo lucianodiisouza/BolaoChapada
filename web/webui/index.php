@@ -135,18 +135,5 @@
 		</div>
 	</div>
 </div>
-<div class="rodape">
-	<p>
-			<a href="regulamento.php">Regulamento</a>
-		BolãoChapada - <a href="https://thecodelovers.com.br/">#</a> &nbsp;
-	</p>
-	<div class="footer-btn">
-		<a href="inc/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
-		<a href="ajudaOnline.php" class="btn btn-danger"><i class="fas fa-question"></i></a>
-	</div>
-</div>
-<div class="img_bg">
-
-</div>
-<!-- mobile_Navigation -->
+<!-- rodape -->
 <?php require('_footer.php'); ?>

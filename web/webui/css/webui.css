@@ -59,16 +59,9 @@ body {
     align-items: center;
 }
 
-.img_bg{
-    background-image: url('../img/footer_bg.png');
-    background-size: cover;
-    width: 100%;
-    height: 150px;
-    bottom: 0;
-}
 
 .placar_input{
-	width: 40px;
+    width: 40px;
 	height: 38px;
 	text-align: center;
 	background-color: #f4f4f4;
@@ -85,20 +78,20 @@ body {
     align-items: center;
 }
 .header_coluna{
-	display: flex;
+    display: flex;
     justify-content: space-between;
     padding: 10px;
 }
 .header_flexInicio{
-	display: flex;
+    display: flex;
 	justify-content: flex-start;
 }
 .header_flexInicioB{
-	display: flex;
+    display: flex;
 	justify-content: space-between;
 }
 .header_flexFinal{
-	display: flex;
+    display: flex;
 	justify-content: flex-end;
 }
 .icon{
@@ -118,4 +111,16 @@ body {
 .thTxt{
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+}
+
+.img_bg{
+    background-image: url('../img/footer_bg.png');
+    background-size: cover;
+    width: 100%;
+    height: 150px;
+    padding: 50px;
+}
+.gridBtn{
+    display: flex;
+    justify-content: space-between;
 }

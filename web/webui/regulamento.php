@@ -57,5 +57,5 @@
         </div>
     </div>
 
-</div>
+<!-- rodape -->
 <?php require('_footer.php'); ?>
