@@ -41,49 +41,23 @@
         </div>
         <div class="row">
             <div class="col">
-                <!-- Valor:
-                <input type="text" class="form-control" required> -->
-                <script>
-                String.prototype.reverse = function(){
-                    return this.split('').reverse().join(''); 
-                    };
-
-                    function mascaraMoeda(campo,evento){
-                    var tecla = (!evento) ? window.event.keyCode : evento.which;
-                    var valor  =  campo.value.replace(/[^\d]+/gi,'').reverse();
-                    var resultado  = "";
-                    var mascara = "##.###.###".reverse();
-                    for (var x=0, y=0; x<mascara.length && y<valor.length;) {
-                        if (mascara.charAt(x) != '#') {
-                        resultado += mascara.charAt(x);
-                        x++;
-                        } else {
-                        resultado += valor.charAt(y);
-                        y++;
-                        x++;
-                        }
-                    }
-                    campo.value = resultado.reverse();
-                    }</script>
-                    Valor:
-                    <input type="Text" onKeyUp="mascaraMoeda(this, event)"  value="" name="valor" claSS="form-control">
+                Valor:
+                <input type="text" name="valor" class="form-control" required maxlength="8" placeholder="Para deduzir valores insira o símbolo de subtração antes do número ( - )"/>
             </div>
         </div>
         <?php
         if(isset($_POST['envia'])){
             $valor = $_POST['valor'];
-            $novoSaldo = $saldoAtual + $valor;
+            $novoSaldo = $saldoAtual + ($valor);
             
             $sql = "UPDATE usuarios SET saldo='$novoSaldo' WHERE id = $id";
             
             if ($conecta->query($sql) === TRUE) {
-                echo "Saldo atualizado!";
+                echo "Atualizando...";
                 ?><meta http-equiv="Refresh" content="0.1; url=index.php"><?php
             } else {
                 echo "Erro: " . $sql . "<br>" . $conecta->error;
             }
-
-
         }
         ?>
     </form>
