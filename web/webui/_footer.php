@@ -13,20 +13,12 @@
 <script src="https://kit.fontawesome.com/fbc2e0b83e.js"></script>
 <!-- datatables -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<!-- ckeditor -->
-<script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
 <script type="text/javascript">
 	$(document).ready( function () {
 	    $('#minhaTabela').DataTable({
 	    	responsive: true
 	    });
 	} );
-	// ckeditor chamada da api
-    // ClassicEditor
-	   //  .create( document.querySelector( '#editor' ) )
-	   //  .catch( error => {
-	   //      console.error( error );
-    // } );
 </script>
 <!-- Cantinho do JavaScript <3 -->
 </body>
