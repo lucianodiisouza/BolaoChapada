@@ -45,6 +45,7 @@
 		$qry = mysqli_query($conecta, $sql);
 
 		$resultado = mysqli_fetch_assoc($qry);
+		
 		$dataInicial = date( 'd/m/Y', strtotime($resultado["dataInicio"]));
 		$horaInicial = date( 'H:i', strtotime($resultado["dataInicio"]));		
 		$dataFinal = date( 'd-m-Y', strtotime($resultado["dataTermino"]));
@@ -113,14 +114,14 @@
 			?>
 				<select name="jogoA" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoA"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoA"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -163,14 +164,14 @@
 			?>
 				<select name="jogoB" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoB"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoB"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -192,7 +193,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 1:
+			Jogo 3:
 			<?php
 				if ($resultado["jogoC"] == 'vazio') {
 			?>
@@ -215,14 +216,14 @@
 			?>
 				<select name="jogoC" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoC"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoC"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php $linha['id'] ?>" selected hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -242,7 +243,7 @@
 		</div>
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 2:
+			Jogo 4:
 			<?php
 				if ($resultado["jogoD"] == 'vazio') {
 			?>
@@ -265,14 +266,14 @@
 			?>
 				<select name="jogoD" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoD"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoD"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -317,14 +318,14 @@
 			?>
 				<select name="jogoE" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoE"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoE"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -367,14 +368,14 @@
 			?>
 				<select name="jogoF" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoF"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoF"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -396,7 +397,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 5:
+			Jogo 7:
 			<?php
 				if ($resultado["jogoG"] == 'vazio') {
 			?>
@@ -419,14 +420,14 @@
 			?>
 				<select name="jogoG" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoG"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoG"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -446,7 +447,7 @@
 		</div>
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 6:
+			Jogo 8:
 			<?php
 				if ($resultado["jogoH"] == 'vazio') {
 			?>
@@ -469,14 +470,14 @@
 			?>
 				<select name="jogoH" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoH"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoH"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -498,7 +499,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 5:
+			Jogo 9:
 			<?php
 				if ($resultado["jogoI"] == 'vazio') {
 			?>
@@ -521,14 +522,14 @@
 			?>
 				<select name="jogoI" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoI"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoI"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -548,7 +549,7 @@
 		</div>
 		<div class="col-md-6">
 			<!--  -->
-			Jogo 6:
+			Jogo 10:
 			<?php
 				if ($resultado["jogoJ"] == 'vazio') {
 			?>
@@ -571,14 +572,14 @@
 			?>
 				<select name="jogoJ" class="form-control" >
 					<?php 
-						$select = "SELECT * FROM jogos where id = ".$resultado["jogoJ"].".";
+						$select = "SELECT * FROM jogos where id = {$resultado["jogoJ"]}";
 						$exibir = mysqli_query($conecta, $select);
 						$linha = mysqli_fetch_assoc($exibir);
 						$data = date( 'd/m', strtotime($linha['data']));
 						$hora = date( 'H:i', strtotime($linha['hora']));
 
 					?>
-					<option value="" selected disabled hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
+					<option value="<?php echo $linha['id'] ?>" selected  hidden><?php echo $linha['timeA']." X ".$linha['timeB']." - Data: ".$data." - Hora: ".$hora ?></option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -617,7 +618,7 @@
 			$jogoI = $_POST["jogoI"];
 			$jogoJ = $_POST["jogoJ"];
 
-			$sql = "UPDATE rodada SET nome='$nome', dataInicio='$dataInicio', dataTermino='$dataTermino', jogoA='$jogoA', jogoB='$jogoB', jogoC='$jogoC', jogoD='$jogoD', jogoE='$jogoE', jogoF='$jogoF', jogoG='$jogoG', jogoH='$jogoH', jogoI='$jogoI', jogoJ='$jogoJ', valor='$valor' WHERE id = $id";
+			$sql = "UPDATE rodada SET nome='$nome', dataInicio='$dataInicio', dataTermino='$dataTermino', valor='$valor', jogoA='$jogoA', jogoB='$jogoB', jogoC='$jogoC', jogoD='$jogoD', jogoE='$jogoE', jogoF='$jogoF', jogoG='$jogoG', jogoH='$jogoH', jogoI='$jogoI', jogoJ='$jogoJ' WHERE id = $id;";
 
 				if ($conecta->query($sql) === TRUE) {
 					$dadosGravados = true;
