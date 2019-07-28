@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="col">
 			<?php $dadosGravados = false;
-			if ($dadosGravados == false) {
+			if ($dadosGravados = false) {
 			?>
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">
 				Preencha até o <strong>final e volte conferindo</strong> O botão de salvar não está aqui em cima por acaso!
@@ -29,7 +29,7 @@
 			    	<span aria-hidden="true">&times;</span>
 			 	</button>
 			</div>
-			<?php }elseif($dadosGravados == true){ ?>
+			<?php }elseif($dadosGravados = true){ ?>
 				<div class="alert alert-success" role="alert">
 				  Sua rodada foi gravada com sucesso <a href="index.php" class="success-link">clique aqui</a> para visualizar.
 				</div>
@@ -52,9 +52,13 @@
 
 	?>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			Nome atual:
 			<input type="text" name="nome" class="form-control" maxlength="250" minlength="5" value="<?php echo $resultado['nome'] ?>" readonly>
+		</div>
+		<div class="col-md-1">
+			Valor:
+			<input type="text" name="valor" class="form-control" value="<?php echo $resultado['valor'] ?>" readonly>
 		</div>
 		<div class="col-md-4">
 			Início (atual):
@@ -66,9 +70,13 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			Nome:
 			<input type="text" name="nome" class="form-control" maxlength="250" minlength="5" value="<?php echo $resultado['nome'] ?>" required>
+		</div>
+		<div class="col-md-1">
+			Valor:
+			<input type="text" name="valor" class="form-control" value="<?php echo $resultado['valor'] ?>">
 		</div>
 		<div class="col-md-4">
 			Início:
@@ -84,10 +92,10 @@
 			<!--  -->
 			Jogo 1:
 			<?php
-				if (empty($resultado["jogoA"])) {
+				if ($resultado["jogoA"] == 'vazio') {
 			?>
-				<select name="jogoA" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoA" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -103,7 +111,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoA" class="form-control" required>
+				<select name="jogoA" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoA"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -134,10 +142,10 @@
 			<!--  -->
 			Jogo 2:
 			<?php
-				if (empty($resultado["jogoB"])) {
+				if ($resultado["jogoB"] == 'vazio') {
 			?>
-				<select name="jogoB" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoB" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -153,7 +161,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoB" class="form-control" required>
+				<select name="jogoB" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoB"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -186,10 +194,10 @@
 			<!--  -->
 			Jogo 1:
 			<?php
-				if (empty($resultado["jogoC"])) {
+				if ($resultado["jogoC"] == 'vazio') {
 			?>
-				<select name="jogoC" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoC" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -205,7 +213,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoC" class="form-control" required>
+				<select name="jogoC" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoC"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -236,10 +244,10 @@
 			<!--  -->
 			Jogo 2:
 			<?php
-				if (empty($resultado["jogoD"])) {
+				if ($resultado["jogoD"] == 'vazio') {
 			?>
-				<select name="jogoD" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoD" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -255,7 +263,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoD" class="form-control" required>
+				<select name="jogoD" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoD"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -288,10 +296,10 @@
 			<!--  -->
 			Jogo 5:
 			<?php
-				if (empty($resultado["jogoE"])) {
+				if ($resultado["jogoE"] == 'vazio') {
 			?>
-				<select name="jogoE" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoE" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -307,7 +315,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoE" class="form-control" required>
+				<select name="jogoE" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoE"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -338,10 +346,10 @@
 			<!--  -->
 			Jogo 6:
 			<?php
-				if (empty($resultado["jogoF"])) {
+				if ($resultado["jogoF"] == 'vazio') {
 			?>
-				<select name="jogoF" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoF" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -357,7 +365,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoF" class="form-control" required>
+				<select name="jogoF" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoF"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -390,10 +398,10 @@
 			<!--  -->
 			Jogo 5:
 			<?php
-				if (empty($resultado["jogoG"])) {
+				if ($resultado["jogoG"] == 'vazio') {
 			?>
-				<select name="jogoG" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoG" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -409,7 +417,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoG" class="form-control" required>
+				<select name="jogoG" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoG"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -440,10 +448,10 @@
 			<!--  -->
 			Jogo 6:
 			<?php
-				if (empty($resultado["jogoH"])) {
+				if ($resultado["jogoH"] == 'vazio') {
 			?>
-				<select name="jogoH" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoH" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -459,7 +467,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoH" class="form-control" required>
+				<select name="jogoH" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoH"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -492,10 +500,10 @@
 			<!--  -->
 			Jogo 5:
 			<?php
-				if (empty($resultado["jogoI"])) {
+				if ($resultado["jogoI"] == 'vazio') {
 			?>
-				<select name="jogoI" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoI" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -511,7 +519,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoI" class="form-control" required>
+				<select name="jogoI" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoI"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -542,10 +550,10 @@
 			<!--  -->
 			Jogo 6:
 			<?php
-				if (empty($resultado["jogoJ"])) {
+				if ($resultado["jogoJ"] == 'vazio') {
 			?>
-				<select name="jogoJ" class="form-control" required>
-					<option value="" selected disabled hidden>Selecione...</option>
+				<select name="jogoJ" class="form-control" >
+					<option value="vazio" selected default>Selecione uma partida...</option>
 					<?php
 						$sql = "SELECT * FROM jogos ORDER BY data DESC";
 						$exibe = mysqli_query($conecta, $sql);
@@ -561,7 +569,7 @@
 			<?php
 				}else{
 			?>
-				<select name="jogoJ" class="form-control" required>
+				<select name="jogoJ" class="form-control" >
 					<?php 
 						$select = "SELECT * FROM jogos where id = ".$resultado["jogoJ"].".";
 						$exibir = mysqli_query($conecta, $select);
@@ -594,6 +602,7 @@
 		if (isset($_POST['envia'])) {
 			// declarando as variaveis POST para mandar tudo para o DataBase em uma viagem só
 			$nome = $_POST["nome"];
+			$valor = $_POST["valor"];
 			$dataInicio = $_POST["dataInicio"];
 			$dataTermino = $_POST["dataTermino"];
 			// Agora começa a brincadeira! eu sequenciei os jogos com letras, pegando apenas o ID, quero ver como isso vai ficar depois hahaha
@@ -608,15 +617,14 @@
 			$jogoI = $_POST["jogoI"];
 			$jogoJ = $_POST["jogoJ"];
 
-			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
+			$sql = "UPDATE rodada SET nome='$nome', dataInicio='$dataInicio', dataTermino='$dataTermino', jogoA='$jogoA', jogoB='$jogoB', jogoC='$jogoC', jogoD='$jogoD', jogoE='$jogoE', jogoF='$jogoF', jogoG='$jogoG', jogoH='$jogoH', jogoI='$jogoI', jogoJ='$jogoJ', valor='$valor' WHERE id = $id";
 
-					if ($conecta->query($sql) === TRUE) {
-					    $dadosGravados = true;
-					} else {
-					    echo "Erro: " . $sql . "<br>" . $conecta->error;
-					}
-					
-				}
-		 ?>
+				if ($conecta->query($sql) === TRUE) {
+					$dadosGravados = true;
+				} else {
+					echo "Erro: " . $sql . "<br>" . $conecta->error;
+				}					
+			}
+		?>
 </form>
 <?php require('../_footer.php'); ?>

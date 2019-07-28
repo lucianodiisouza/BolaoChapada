@@ -28,6 +28,13 @@
 					<p><strong>Valor T$ <?php echo $rodada['valor'] ?></strong> / Vigência: de <b><?php echo $dataInicio." - ".$horaInicio." a ".$dataTermino." - ".$horaTermino ?></b>&nbsp;&nbsp;&nbsp;<a href="ver.php?id=<?php echo $rodada['id'] ?>"><i class="far fa-eye"></i></a></p>
 				</div>
 					<div class="row">
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoA'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoA"]."";
@@ -47,8 +54,18 @@
 								</p>
 							</center>
 						</div>
-						<div class="col-md-2 block_partida">
-							<?php 
+						<?php } ?>
+						<!-- jogo A -->
+						<!-- jogo B -->
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoB'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+							<div class="col-md-2 block_partida">
+								<!-- ota fumiga-->							
+								<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoB"]."";
 								$qryPartida = mysqli_query($conecta, $sqlPartida);
 								$partida = mysqli_fetch_assoc($qryPartida);
@@ -56,35 +73,51 @@
 								$data = date( 'd/m', strtotime($partida["data"]));
 								$hora = date( 'H:i', strtotime($partida["hora"]));
 								// Fim do PHP								
-							?>
-							<center>
-								<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-								<p class="small">
-									<?php 
-										echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-									?>											
-								</p>
-							</center>
-						</div>
-						<div class="col-md-2 block_partida">
-							<?php 
-								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoC"]."";
-								$qryPartida = mysqli_query($conecta, $sqlPartida);
-								$partida = mysqli_fetch_assoc($qryPartida);
-								
-								$data = date( 'd/m', strtotime($partida["data"]));
-								$hora = date( 'H:i', strtotime($partida["hora"]));
-								// Fim do PHP								
-							?>
-							<center>
-								<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
-								<p class="small">
-									<?php 
-										echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
-									?>											
-								</p>
-							</center>
-						</div>
+								?>
+								<center>
+									<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+									<p class="small">
+										<?php 
+											echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+										?>											
+									</p>
+								</center>
+							</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoC'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->							
+							<div class="col-md-2 block_partida">
+								<?php 
+									$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoC"]."";
+									$qryPartida = mysqli_query($conecta, $sqlPartida);
+									$partida = mysqli_fetch_assoc($qryPartida);
+									
+									$data = date( 'd/m', strtotime($partida["data"]));
+									$hora = date( 'H:i', strtotime($partida["hora"]));
+									// Fim do PHP								
+								?>
+								<center>
+									<h3><?php echo $partida["timeA"].' x '.$partida["timeB"]; ?></h3>
+									<p class="small">
+										<?php 
+											echo '<b>'.$partida["nomeTimeA"].' x '.$partida["nomeTimeB"].'</b><br>'.$partida["local"].'<br>'.$data.' - '.$hora 
+										?>											
+									</p>
+								</center>
+							</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoD'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->							
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoD"]."";
@@ -104,6 +137,14 @@
 								</p>
 							</center>
 						</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoE'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->							
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoE"]."";
@@ -123,8 +164,16 @@
 								</p>
 							</center>
 						</div>										
+						<?php } ?>
 					</div>
 					<div class="row">
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoF'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoF"]."";
@@ -144,7 +193,15 @@
 								</p>
 							</center>
 						</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoG'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
 						<div class="col-md-2 block_partida">
+						<!-- ota fumiga-->							
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoG"]."";
 								$qryPartida = mysqli_query($conecta, $sqlPartida);
@@ -163,6 +220,14 @@
 								</p>
 							</center>
 						</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoH'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->							
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoH"]."";
@@ -182,6 +247,14 @@
 								</p>
 							</center>
 						</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoI'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoI"]."";
@@ -201,6 +274,14 @@
 								</p>
 							</center>
 						</div>
+						<?php } ?>
+						<!-- ota fumiga-->
+						<?php if($rodada['jogoJ'] == 'vazio'){ ?>
+							<div class="col-md-2 block_partida">
+								<h1><center>Jogo Vazio</center></h1>
+							</div>	
+						<?php }else{ ?>
+						<!-- ota fumiga-->							
 						<div class="col-md-2 block_partida">
 							<?php 
 								$sqlPartida = "SELECT * FROM jogos WHERE id = ".$rodada["jogoJ"]."";
@@ -219,7 +300,8 @@
 									?>											
 								</p>
 							</center>
-						</div>											
+						</div>
+						<?php } ?>											
 					</div>
 					<hr>
 						<?php

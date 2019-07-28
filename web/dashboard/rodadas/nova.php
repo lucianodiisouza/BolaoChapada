@@ -46,10 +46,7 @@
 		</div>
 		<div class="col-md-1">
 			Valor:
-			<select name="valor" class="form-control">
-				<option value="5" selected>5 T$</option>
-				<option value="10">10 T$</option>
-			</select>
+			<input type="text" name="valor" class="form-control" maxlength="10" required>
 		</div>
 
 		<div class="col-md-4">
