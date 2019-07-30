@@ -70,66 +70,25 @@
 		<div class="table-responsive">
 			<table class="table table-hover table-sm">
 				<thead>
-					<th>Posição</th>
+					<th><center>#POS</center></th>
 					<th>Usuário</th>
 					<th>Pontos</th>
 				</thead>
 				<tbody>
+					<?php 
+						$sqlRanking = "SELECT * FROM usuarios ORDER BY pontos DESC";
+						$qryRanking = mysqli_query($conecta, $sqlRanking);
+						$posicao = 0;
+						while($rowRanking = mysqli_fetch_array($qryRanking)){
+							$incPosicao = $posicao + 1;
+							$posicao = $incPosicao;
+							?>
 					<tr>
-						<td>01</td>
-						<td>ximbinha</td>
-						<td>30pts</td>
+						<td><center><?php echo $posicao ?></center></td>
+						<td><?php echo $rowRanking['usuario'] ?> </td>
+						<td><?php echo $rowRanking['pontos'] ?>pts</td>
 					</tr>
-					<tr>
-						<td>02</td>
-						<td>tonho</td>
-						<td>28pts</td>
-					</tr>
-					<tr>
-						<td>03</td>
-						<td>beiçola</td>
-						<td>27pts</td>
-					</tr>
-					<tr>
-						<td>04</td>
-						<td>prego001</td>
-						<td>25pts</td>
-					</tr>
-					<tr>
-						<td>05</td>
-						<td>NoobMaster69</td>
-						<td>21pts</td>
-					</tr>
-					<tr>
-						<td>06</td>
-						<td>IronManRJ</td>
-						<td>20pts</td>
-					</tr>
-					<tr>
-						<td>07</td>
-						<td>UsuarioAleario</td>
-						<td>19pts</td>
-					</tr>
-					<tr>
-						<td>08</td>
-						<td>JãoTimbira</td>
-						<td>18pts</td>
-					</tr>
-					<tr>
-						<td>09</td>
-						<td>ximbinha</td>
-						<td>30pts</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td>ximbinha</td>
-						<td>30pts</td>
-					</tr>
-					<tr>
-						<td>11</td>
-						<td>ximbinha</td>
-						<td>30pts</td>
-					</tr>
+					<?php } ?>
 				</tbody>
 			</table>
 		</div>
