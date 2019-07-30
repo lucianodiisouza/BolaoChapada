@@ -13,8 +13,7 @@
             <div class="justificaHeader">
                 Para receber credito de tickets no site, basta realizar
                 uma transferência para uma de nossas contas listadas abaixo e 
-                envie o comprovante</a> para nosso suporte no whatsapp envie o comprovante para nosso suporte no whatsapp  (75) 9 9907-1218.<br><br>
-                <a href="https://api.whatsapp.com/send?phone=5575999071218">Clique aqui</a> para enviar uma mensagem no whatsapp.<br> 
+                enviar o comprovante para nosso suporte no whatsapp (75) 9 9907-1218.<br><br>
             </div>
 
             <br>
@@ -41,7 +40,7 @@
 
             <b>PicPay</b><br>
             @vinicius.martins331<br>
-            Ou <a href="https://app.picpay.com/user/vinicius.martins331">clique aqui</a> para me pagar com PicPay.<br>
+            Acesse o link picpay.me/vinicius.martins331 para me pagar com PicPay.<br>
             </p>
         </div>
     </div>
