@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	error_reporting(0);
 	require('../inc/conexao.php');
 	require('../_validar_login_sub.php');
 	$usuarioAtual = $_SESSION['usuario'];

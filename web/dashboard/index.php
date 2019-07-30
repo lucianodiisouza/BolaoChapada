@@ -35,7 +35,7 @@
 			<br>
 			<!-- usuarios -->
 			<div class="row">
-				<div class="col-md-6 colunaCustom">
+				<div class="col-md-8 colunaCustom">
 					<div class="header_coluna">
 						<?php echo $_SESSION['usuario']; ?>
 						<h4>Usuários</h4>
@@ -80,45 +80,8 @@
 				</div>
 					<!-- datatable -->
 				</div>
-				<!-- Mensagens -->
+				<!-- jogos -->
 				<div class="col colunaCustom">
-					<div class="header_coluna">
-						<h4>Mensagens</h4>
-						<a href="mensagens/nova.php" class="btn btn-success"><i class="fas fa-plus"></i></a>						
-					</div>
-					<hr>
-					<div class="table-responsive">
-						<table class="table table-hover table-sm">
-							<thead>
-								<tr>
-									<th scope="col">De</th>
-									<th scope="col">Assunto</th>
-									<th scope="col"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php 
-									$sql = "SELECT * FROM mensagens where id_para = 1 ORDER BY id DESC limit 10;";
-									$qry = mysqli_query($conecta, $sql);
-									while ($linha = mysqli_fetch_array($qry)) {
-								?>
-									<tr>
-										<td><?php echo $linha["id_de"] ?></td>
-										<td><?php echo $linha["assunto"] ?></td>
-										<td><center><a href="mensagens/ver.php?id=<?php echo $linha["id"]?>"><i class="far fa-eye"></i></a></center></td>
-									</tr>					
-								<?php
-									}									 
-								?>
-							</tbody>
-						</table>
-					</div>
-				</div>				
-			</div>
-			<!-- usuários -->
-			<!-- jogos -->
-			<div class="row">
-				<div class="col-md-4 colunaCustom">
 					<div class="header_coluna">
 						<h4>Jogos</h4>
 						<a href="jogos/novo.php" class="btn btn-success"><i class="fas fa-plus"></i></a>
@@ -164,6 +127,10 @@
 						</table>
 					</div>
 				</div>
+			</div>
+			<!-- usuários -->
+			<!-- jogos -->
+			<div class="row">
 				<!-- rodadas -->
 				<div class="col colunaCustom">
 					<div class="header_coluna">
@@ -202,7 +169,7 @@
 										<center>
 											<a href="rodadas/ver.php?id=<?php echo $linha["id"]?>" title="Ver Rodada"><i class="far fa-eye"></i></a>
 											<a href="processarRodada/index.php?id=<?php echo $linha["id"]?>" title="Processar rodada"><i class="fas fa-hourglass-half"></i></a>
-											<a href="rankingRodada.php?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a>
+											<!-- <a href="rankingRodada.php?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a> -->
 										</center>
 									</td>
 								</tr>
