@@ -103,7 +103,7 @@
 			</div>
 			<div class="col-md-3">
 				CPF:
-				<input type="text" name="cpf" class="form-control" value="<?php echo $resultado["cpf"]; ?>" maxlength="9">
+				<input type="text" name="cpf" class="form-control" value="<?php echo $resultado["cpf"]; ?>" maxlength="11">
 			</div>				
 		</div>
 		<br>

@@ -9,16 +9,41 @@
 <div class="container">
         <?php
             $rodada = $_GET['id'];
-            $valorRodada = $_GET['custo'];
+            $sqlGetRodada = "SELECT * FROM rodada WHERE id = {$rodada}";
+            $qryGetRodada = mysqli_query($conecta, $sqlGetRodada);
+            $rstGetRodada = mysqli_fetch_assoc($qryGetRodada);
+            // custo da rodada 
+            $valorRodada = $rstGetRodada['valor'];
             
+            // Estatísticas básicas
             $sqlStats = "SELECT * FROM palpites WHERE idRodada = {$rodada}";
             $resul = mysqli_query($conecta, $sqlStats);
             $regs = mysqli_num_rows($resul);
 
-            $premioTotal = ((($regs * $valorRodada)/10)*9);
-            $premioPrimeiro = $premioTotal * 0.75;
-            $premioSegundo = $premioTotal * 0.15;
-            $premioTerceiro = $premioTotal * 0.10;
+            $sqlGetAcumulado = "SELECT * FROM acumulado";
+            $qryGetAcumulado = mysqli_query($conecta, $sqlGetAcumulado);
+            $rstGetAcumulado = mysqli_fetch_assoc($qryGetAcumulado);
+            $valorAcumulado = $rstGetAcumulado['valor'];
+            
+            // se a rodada tiver a flag 's' no field acumulado, somar o valor acumulado ao premio final
+            if($rstGetRodada['acumulado'] == 's'){
+                // Calculo do Prêmio
+                $premioTotal = ((($regs * $valorRodada)/10)*7) + $valorAcumulado;
+                $premioPrimeiro = $premioTotal * 0.75;
+                $premioSegundo = $premioTotal * 0.15;
+                $premioTerceiro = $premioTotal * 0.10;
+
+                $sqlAtualizarAcumulado = "UPDATE acumulado SET valor= 0 ";
+                $qryAtualizaAcumulado = mysqli_query($conecta, $sqlAtualizarAcumulado);
+                
+            }else{
+                // Calculo do Prêmio
+                $premioTotal = ((($regs * $valorRodada)/10)*7);
+                $premioPrimeiro = $premioTotal * 0.75;
+                $premioSegundo = $premioTotal * 0.15;
+                $premioTerceiro = $premioTotal * 0.10;
+            }
+
 
         ?>
         <div class="header_coluna">
@@ -31,6 +56,7 @@
                     <tr>
                         <td><center>Total de Palpites</center></td>
                         <td>Premio Total</td>
+                        <td>Acumulado</td>
                         <td>1º Lugar</td>
                         <td>2º Lugar</td>
                         <td>3º Lugar</td>
@@ -42,11 +68,12 @@
                     <tr>
                         <td><center><?php echo $regs ?></center></td>
                         <td>R$ <?php echo $premioTotal ?></td>
+                        <td>R$ <?php echo $valorAcumulado ?></td>
                         <td>R$ <?php echo $premioPrimeiro ?></td>
                         <td>R$ <?php echo $premioSegundo ?></td>
                         <td>R$  <?php echo $premioTerceiro ?></td>
-                        <td>10 T$</td>
-                        <td>5 T$</td>
+                        <td>2 tickets</td>
+                        <td>1 ticket</td>
                     </tr>
                 </tbody>
             </table>
@@ -68,7 +95,7 @@
                             while($rowRanking = mysqli_fetch_array($qryRanking)){
                                 $incPosicao = $posicao + 1;
                                 $posicao = $incPosicao;
-                                ?>
+                        ?>
                         <tr>
                             <td><center><?php echo $posicao ?></center></td>
                             <td><?php echo $rowRanking['usuario'] ?> </td>

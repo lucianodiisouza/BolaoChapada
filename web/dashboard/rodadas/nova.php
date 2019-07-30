@@ -7,8 +7,14 @@
 <br>
 <br>
 <form method="post">
+	<?php 
+		$sqlGetAcumulado = "SELECT * FROM acumulado";
+		$qryGetAcumulado = mysqli_query($conecta, $sqlGetAcumulado);
+		$rstGetAcumulado = mysqli_fetch_assoc($qryGetAcumulado);
+		$valorAcumulado = $rstGetAcumulado['valor'];
+	?>
 	<div class="header_FlexInicio">
-		<h4>Rodadas</h4>
+		<h4>Rodadas - Valor Acumulado: R$<?php echo $valorAcumulado ?></h4>
 	</div>
 	<!-- botoes do topo (enviar e voltar para a página anterior) -->
 	<div class="header_flexFinal">
@@ -29,18 +35,16 @@
 			    	<span aria-hidden="true">&times;</span>
 			 	</button>
 			</div>
-			<?php }elseif($dadosGravados == true){ ?>
+			<?php }elseif( $dadosGravados == true ){ ?>
 				<div class="alert alert-success" role="alert">
 				  Sua rodada foi gravada com sucesso <a href="index.php" class="success-link">clique aqui</a> para visualizar.
 				</div>
 			<?php } ?>
 			<!-- Alert com dismiss  -->
-
-			<!-- Alert com dismiss -->
 		</div>		
 	</div>
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			Nome:
 			<input type="text" name="nome" class="form-control" maxlength="250" minlength="5" required>
 		</div>
@@ -48,12 +52,18 @@
 			Valor:
 			<input type="text" name="valor" class="form-control" maxlength="10" required>
 		</div>
-
-		<div class="col-md-4">
+		<div class="col-md-1">
+			Acumulado:
+			<select name="acumulado" class="form-control" required>
+				<option value="n" selected>Não</option>
+				<option value="s">Sim</option>
+			</select>
+		</div>
+		<div class="col-md-3">
 			Início:
 			<input type="datetime-local" name="dataInicio" class="form-control" min>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			Término:
 			<input type="datetime-local" name="dataTermino" class="form-control">
 		</div>
@@ -246,7 +256,7 @@
 			$valor = $_POST["valor"];
 			$dataInicio = $_POST["dataInicio"];
 			$dataTermino = $_POST["dataTermino"];
-
+			$acumulado = $_POST['acumulado'];
 			// Agora começa a brincadeira! eu sequenciei os jogos com letras, pegando apenas o ID, quero ver como isso vai ficar depois hahaha
 			$jogoA = $_POST["jogoA"];
 			$jogoB = $_POST["jogoB"];
@@ -259,7 +269,7 @@
 			$jogoI = $_POST["jogoI"];
 			$jogoJ = $_POST["jogoJ"];
 
-			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, valor, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$valor', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
+			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, valor, acumulado, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$valor'. '$acumulado', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
 
 					if ($conecta->query($sql) === TRUE) {
 					    $dadosGravados = true;

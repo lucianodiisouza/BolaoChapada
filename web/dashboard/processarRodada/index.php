@@ -8,23 +8,25 @@
 <br>
 <?php
     // id da rodada veio por GET
-$idRodada = $_GET['id'];
-// dar select na rodada com o id
-$sqlRodada = "SELECT * FROM rodada WHERE id = $idRodada";
-$qryRodada = mysqli_query($conecta, $sqlRodada);
-$getRodada = mysqli_fetch_assoc($qryRodada);
-$custo = $getRodada['valor'];
+    $idRodada = $_GET['id'];
+    // dar select na rodada com o id
+    $sqlRodada = "SELECT * FROM rodada WHERE id = $idRodada";
+    $qryRodada = mysqli_query($conecta, $sqlRodada);
+    $getRodada = mysqli_fetch_assoc($qryRodada);
+
+    // atualizar tabela de acumulado
+    $acumulado = $getRodada['acumulado'];
 ?>
 <div class="header_coluna">
     <h4>Processamento de Rodadas</h4>
-    <a class="btn btn-success" href="rankingRodada.php?id=<?php echo $idRodada ?>&custo=<?php echo $custo ?>">Ver ranking</a>
+    <a class="btn btn-success" href="rankingRodada.php?id=<?php echo $idRodada ?>">Ver ranking atualizado</a>
 </div>
 <br>
 <div class="alert alert-success" role="alert">
   A rodada foi processada! O ranking semanal já está disponível!
 </div>
 <hr>
-            
+
 <?php
 
     // definindo as variávis com o id de cada partida a partir das partidas da rodada.
@@ -400,10 +402,34 @@ $custo = $getRodada['valor'];
             }else{
                 echo "O usuário fez uma pontuação maior com outro palpite. Este resultado será ignorado.";
             }
-            
         // termino da colunaCustom
         echo "</div>";
     }
 
+    $valorRodada = $getRodada['valor'];
+            
+    // get basic stats
+    $sqlStats = "SELECT * FROM palpites WHERE idRodada = {$idRodada}";
+    $resul = mysqli_query($conecta, $sqlStats);
+    $regs = mysqli_num_rows($resul);
+
+    // Calculo do acumulado
+    $acumuladoValor = (($regs * $valorRodada)/10) ;
+
+    $sqlGetAcumulado = "SELECT * FROM acumulado";
+    $qryGetAcumulado = mysqli_query($conecta, $sqlGetAcumulado);
+    $rstGetAcumulado = mysqli_fetch_assoc($qryGetAcumulado);
+    $valorAtual = $rstGetAcumulado['valor'];
+
+    $sqlProcessaRodada = "UPDATE rodada SET rodadaProcessada=true WHERE id = {$idRodada}";
+    $qryProcessaRodada = mysqli_query($conecta, $sqlProcessaRodada);
+
+    $novoAcumulado = $acumuladoValor + $valorAtual;
+    if($acumulado == 'n'){
+        $sqlAtualizarAcumulado = "UPDATE acumulado SET valor='$novoAcumulado' ";
+        $qryAtualizaAcumulado = mysqli_query($conecta, $sqlAtualizarAcumulado);
+    }else{
+        echo "esta é uma rodada acumulada!";
+    }
 ?>
 <?php require('../_footer.php') ?>

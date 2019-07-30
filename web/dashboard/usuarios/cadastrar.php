@@ -104,7 +104,7 @@
 			</div>
 			<div class="col-md-3">
 				CPF:
-				<input type="text" name="cpf" class="form-control" maxlength="9">
+				<input type="text" name="cpf" class="form-control" maxlength="11">
 			</div>				
 		</div>
 		<!--<div class="row">
