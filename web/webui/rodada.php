@@ -375,7 +375,11 @@
 			$saldoAtual = $usuarioDados['saldo'];
 			$novoSaldo = $saldoAtual - $custo;
 
-				if($novoSaldo >= 0){
+				if($novoSaldo < 0){
+					?>
+					<meta http-equiv="Refresh" content="0.1; url=saldoInsuficiente.php">
+					<?php
+				}else{
 					$atualizaSaldoSQL = "UPDATE usuarios SET saldo='$novoSaldo' WHERE id = $idUsuario";
 					$atualizaSaldoQRY = mysqli_query($conecta, $atualizaSaldoSQL);
 					
@@ -410,9 +414,7 @@
 						<meta http-equiv="Refresh" content="0.1; url=index.php">
                         <?php
                     } else {
-						?>
-						<meta http-equiv="Refresh" content="0.1; url=saldoInsuficiente.php">
-						<?php
+
                     }				
 
 				}

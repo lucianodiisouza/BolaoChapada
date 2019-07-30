@@ -1,8 +1,9 @@
 <center>
 	<div class="gridBtn">
-		<a href="inc/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
-		<a href="regulamento.php" class="btn btn-danger"><i class="fas fa-question"></i></a>
-		<a href="ajudaOnline.php" class="btn btn-danger"><i class="far fa-envelope"></i></a>
+		<a href="inc/logout.php" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></a>
+		<a href="regulamento.php" class="btn btn-success"><i class="fas fa-question"></i></a>
+		<a href="recarga.php" class="btn btn-success"><i class="fas fa-dollar-sign"></i></a>
+		<a href="ajudaOnline.php" class="btn btn-success"><i class="far fa-envelope"></i></a>
 	</div>
 </center>
 

@@ -11,7 +11,6 @@
             <p style="text-align: justify;">
            
             <div class="justificaHeader">
-                <h5>OPS... Você não possui saldo suficiente!</h5><br><br>
                 Para receber credito de tickets no site, basta realizar
                 uma transferência para uma de nossas contas listadas abaixo e 
                 envie o comprovante</a> para nosso suporte no whatsapp envie o comprovante para nosso suporte no whatsapp  (75) 9 9907-1218.<br><br>
