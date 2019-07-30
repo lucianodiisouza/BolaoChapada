@@ -37,7 +37,10 @@ require('inc/conexao.php');
                         </div>
                             <div class="col-md-4">
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    Usuário ou senha incorretos.
+                                    <center>
+                                        Usuário ou senha incorretos.<br>
+                                    <a href="redefinir_senha.php">Clique para resetar sua senha</a>
+                                    </center>
                                 </div>
                             </div>
                         <div class="col-md-4">
