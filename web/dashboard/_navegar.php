@@ -33,6 +33,10 @@
 		        <a class="nav-link" href="usuarios/">Usuários</a>
 		      </li>
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <li class="nav-item">
+		        <a class="btn btn-danger" href="#modal" data-toggle="modal" data-target="#modalExemplo">Zerar Pontuação</a>
+		      </li>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		        <div class="dropdown">
 				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    <i class="fas fa-users-cog"></i>

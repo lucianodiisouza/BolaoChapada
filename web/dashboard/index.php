@@ -5,6 +5,29 @@
 <?php require('_navegar.php'); ?>
 <!-- _header -->
 <!-- _navegar -->
+<!-- modal zerar pontuação da rodada -->
+<!-- Botão para acionar modal -->
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Zerar Pontuação da Rodada</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tem certeza? Esta ação irá zerar a pontuação da rodada!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger" href="zerarRodada.php">Tenho certeza</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal zerar pontuação da rodada -->
 	<!-- Barra de Menu - Será fixa no topo -->
 		<div class="container-fluid" style="width: 98% !important;">
 			<br>
@@ -135,7 +158,7 @@
 									<td><center><a href="jogos/ver.php?id=<?php echo $linha["id"]?>"><i class="far fa-eye"></i></a></center></td>
 								</tr>			
 								<?php
-									}									 
+									}
 								?>
 							</tbody>
 						</table>
@@ -179,7 +202,7 @@
 										<center>
 											<a href="rodadas/ver.php?id=<?php echo $linha["id"]?>" title="Ver Rodada"><i class="far fa-eye"></i></a>
 											<a href="processarRodada/index.php?id=<?php echo $linha["id"]?>" title="Processar rodada"><i class="fas fa-hourglass-half"></i></a>
-											<a href="rankingRodada.php?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a>
+											<a href="#?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a>
 										</center>
 									</td>
 								</tr>
