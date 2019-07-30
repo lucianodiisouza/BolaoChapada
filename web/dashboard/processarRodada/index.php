@@ -383,10 +383,20 @@ $getRodada = mysqli_fetch_assoc($qryRodada);
             $idPalpiteiro = $selectionaPalpitesFetch['idUsuario'];
             echo "A pontuação do usuário " .$idPalpiteiro." é ".$pontosTotal.".";
 
-            //pegar id do usuário e atualizar pontuação no banco de dados       
-            $sqlAtribuiPontosUsuario = "UPDATE usuarios set pontos='$pontosTotal' WHERE id = $idPalpiteiro";
-            $qryAtribuiPontosUsuario = mysqli_query($conecta, $sqlAtribuiPontosUsuario);
-            echo " Salva com sucesso!<br>";
+            // comparar o valor atual, só atualizar caso a pontuação do usuário for inferior a pontuação atual
+            $sqlVerPontos = "SELECT * FROM usuarios WHERE id = $idPalpiteiro";
+            $qryVerPontos = mysqli_query($conecta, $sqlVerPontos);
+            $rstVerPontos = mysqli_fetch_assoc($qryVerPontos);
+
+            $rstSaldo = $rstVerPontos['pontos'];
+            if($rstSaldo < $pontosTotal){
+                // pegar id do usuário e atualizar pontuação no banco de dados       
+                $sqlAtribuiPontosUsuario = "UPDATE usuarios set pontos='$pontosTotal' WHERE id = $idPalpiteiro";
+                $qryAtribuiPontosUsuario = mysqli_query($conecta, $sqlAtribuiPontosUsuario);
+                echo " Salva com sucesso!<br>";
+            }else{
+                echo "O usuário fez uma pontuação maior com outro palpite. Este resultado será ignorado.";
+            }
             
         // termino da colunaCustom
         echo "</div>";

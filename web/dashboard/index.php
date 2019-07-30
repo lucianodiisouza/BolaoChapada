@@ -202,7 +202,7 @@
 										<center>
 											<a href="rodadas/ver.php?id=<?php echo $linha["id"]?>" title="Ver Rodada"><i class="far fa-eye"></i></a>
 											<a href="processarRodada/index.php?id=<?php echo $linha["id"]?>" title="Processar rodada"><i class="fas fa-hourglass-half"></i></a>
-											<a href="#?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a>
+											<a href="rankingRodada.php?id=<?php echo $linha["id"]?>" title="ranking"><i class="fas fa-trophy"></i></a>
 										</center>
 									</td>
 								</tr>
