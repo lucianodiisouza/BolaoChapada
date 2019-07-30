@@ -52,7 +52,7 @@ require('inc/conexao.php');
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="usuario" placeholder="usuário" class="form-control" required><br>
+                            <input type="text" name="usuario" placeholder="usuário" class="form-control" autocomplete="false" required><br>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -61,7 +61,7 @@ require('inc/conexao.php');
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                            <input type="password" name="senha" placeholder="senha" class="form-control" required><br>
+                            <input type="password" name="senha" placeholder="senha" class="form-control" autocomplete="false" required><br>
                         </div>
                         <div class="col-md-4">
                         </div>

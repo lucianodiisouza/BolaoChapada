@@ -34,6 +34,10 @@
 		      </li>
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		      <li class="nav-item">
+		        <a class="btn btn-primary" href="https://webmail1.hostinger.com.br" target="_blank">Email</a>
+		      </li>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <li class="nav-item">
 		        <a class="btn btn-danger" href="#modal" data-toggle="modal" data-target="#modalExemplo">Zerar Pontuação</a>
 		      </li>
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -42,10 +46,7 @@
 				    <i class="fas fa-users-cog"></i>
 				  </a>
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
-				    <a class="dropdown-item" href="#">Ajuda</a>
-				    <div class="dropdown-divider"></div>
-				    <a class="dropdown-item" href="#">Configuração</a>
-				    <a class="dropdown-item" href="#">Regras</a>
+				    <a class="dropdown-item" href="https://bolaochapada.com.br/regulamento/">Regras</a>
 				    <div class="dropdown-divider"></div>
 				    <a class="dropdown-item" href="inc/logout.php">Desconectar</a>
 				  </div>

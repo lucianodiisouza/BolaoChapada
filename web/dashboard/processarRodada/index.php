@@ -6,23 +6,26 @@
 <br>
 <br>
 <br>
-<div class="header_coluna">
-    <h4>Processamento de Rodadas</h4>
-    <a href="../" class="btn btn-danger">Voltar</a>
-</div>
-<br>
-<div class="alert alert-success" role="alert">
-  A rodada foi processada! Clique no botão voltar!
-</div>
-<hr>
-            
 <?php
-// id da rodada veio por GET
+    // id da rodada veio por GET
 $idRodada = $_GET['id'];
 // dar select na rodada com o id
 $sqlRodada = "SELECT * FROM rodada WHERE id = $idRodada";
 $qryRodada = mysqli_query($conecta, $sqlRodada);
 $getRodada = mysqli_fetch_assoc($qryRodada);
+$custo = $getRodada['valor'];
+?>
+<div class="header_coluna">
+    <h4>Processamento de Rodadas</h4>
+    <a class="btn btn-success" href="rankingRodada.php?id=<?php echo $idRodada ?>&custo=<?php echo $custo ?>">Ver ranking</a>
+</div>
+<br>
+<div class="alert alert-success" role="alert">
+  A rodada foi processada! O ranking semanal já está disponível!
+</div>
+<hr>
+            
+<?php
 
     // definindo as variávis com o id de cada partida a partir das partidas da rodada.
     $jogoA = $getRodada['jogoA'];
@@ -402,7 +405,5 @@ $getRodada = mysqli_fetch_assoc($qryRodada);
         echo "</div>";
     }
 
-
 ?>
-
 <?php require('../_footer.php') ?>

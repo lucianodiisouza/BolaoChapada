@@ -35,7 +35,7 @@
 			<br>
 			<!-- usuarios -->
 			<div class="row">
-				<div class="col-md-8 colunaCustom">
+				<div class="col-md-6 colunaCustom">
 					<div class="header_coluna">
 						<?php echo $_SESSION['usuario']; ?>
 						<h4>Usuários</h4>
