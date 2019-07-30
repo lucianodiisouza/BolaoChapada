@@ -27,21 +27,9 @@
 <br>
 <br>
 <br>
+<br>
 <!-- menu do mobile -->
 <div class="container-fluid">
-	 
-	<div class="row">
-		<div class="col colunaCustom">
-			<p>
-				Pontuação
-			</p>
-		</div>
-		<div class="col colunaCustom">
-			<p>
-				Posição
-			</p>
-		</div>
-	</div>
 	<!-- rodadas (ultima e penultima) -->
 		<?php
 			$qry = mysqli_query($conecta, "SELECT * FROM rodada ORDER BY id DESC limit 2");
