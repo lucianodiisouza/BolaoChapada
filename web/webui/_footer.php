@@ -1,10 +1,11 @@
-<div class="img_bg">
+<center>
 	<div class="gridBtn">
 		<a href="inc/logout.php" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i></a>
 		<a href="regulamento.php" class="btn btn-danger"><i class="fas fa-question"></i></a>
 		<a href="ajudaOnline.php" class="btn btn-danger"><i class="far fa-envelope"></i></a>
 	</div>
-</div>
+</center>
+
 <!-- Cantinho do JavaScript <3 -->
 <!-- bootstrap -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
