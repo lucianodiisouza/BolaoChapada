@@ -269,7 +269,7 @@
 			$jogoI = $_POST["jogoI"];
 			$jogoJ = $_POST["jogoJ"];
 
-			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, valor, acumulado, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$valor'. '$acumulado', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
+			$sql = "INSERT INTO rodada (nome, dataInicio, dataTermino, valor, acumulado, jogoA, jogoB, jogoC, jogoD, jogoE, jogoF, jogoG, jogoH, jogoI, jogoJ ) VALUES ( '$nome', '$dataInicio', '$dataTermino', '$valor', '$acumulado', '$jogoA', '$jogoB', '$jogoC', '$jogoD', '$jogoE', '$jogoF', '$jogoG', '$jogoH', '$jogoI', '$jogoJ')";
 
 					if ($conecta->query($sql) === TRUE) {
 					    $dadosGravados = true;

@@ -47,7 +47,20 @@
 				</div>
 					<div class="iconGrid">
 						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a> 
-						<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
+						<?php 
+							date_default_timezone_set('America/Sao_Paulo');
+							$hoje = date('d/m/Y H:i');
+							// echo $hoje;
+							if($hoje < $dataI){
+						?>
+								<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
+						<?php 
+							}else{
+						?>
+							<a href="" title="Dar meu palpite" class="btn btn-success txtBtn">Encerrada</a>
+						<?php 
+						}
+						?>
 					</div>
 			</div>
 		</div>
