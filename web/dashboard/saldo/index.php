@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             <?php 
-                $sql = "SELECT * FROM usuarios ORDER BY id DESC limit 10;";
+                $sql = "SELECT * FROM usuarios ORDER BY id DESC;";
                 $qry = mysqli_query($conecta, $sql);
                 while ($linha = mysqli_fetch_array($qry)) {
             ?>							

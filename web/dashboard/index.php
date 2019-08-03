@@ -229,7 +229,12 @@
 								?>
 								<tr>
 									<td>#<?php echo $linha["id"] ?></td>
-									<td><?php echo $linha["idUsuario"] ?></td>
+									<td><?php 
+										$sqlUsr = "SELECT * FROM usuarios WHERE id = {$linha["idUsuario"]}";
+										$qryUsr = mysqli_query($conecta, $sqlUsr);
+										$rstUsr = mysqli_fetch_assoc($qryUsr);
+										echo $rstUsr['usuario'];
+									?></td>
 									<td><?php echo $data.' - '.$hora ?></td>
 									<td><?php echo $linha["jogoAMandante"]." x ".$linha["jogoAVisitante"]  ?></td>
 									<td><?php echo $linha["jogoBMandante"]." x ".$linha["jogoBVisitante"]  ?></td>
