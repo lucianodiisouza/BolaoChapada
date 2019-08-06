@@ -42,6 +42,7 @@
                 $premioPrimeiro = $premioTotal * 0.75;
                 $premioSegundo = $premioTotal * 0.15;
                 $premioTerceiro = $premioTotal * 0.10;
+
             }
 
 
@@ -67,11 +68,11 @@
                 <tbody>
                     <tr>
                         <td><center><?php echo $regs ?></center></td>
-                        <td>R$ <?php echo $premioTotal ?></td>
-                        <td>R$ <?php echo $valorAcumulado ?></td>
-                        <td>R$ <?php echo $premioPrimeiro ?></td>
-                        <td>R$ <?php echo $premioSegundo ?></td>
-                        <td>R$  <?php echo $premioTerceiro ?></td>
+                        <td>R$ <?php echo number_format($premioTotal, 2) ?></td>
+                        <td>R$ <?php echo number_format($valorAcumulado, 2) ?></td>
+                        <td>R$ <?php echo number_format($premioPrimeiro, 2) ?></td>
+                        <td>R$ <?php echo number_format($premioSegundo, 2) ?></td>
+                        <td>R$ <?php echo number_format($premioTerceiro, 2) ?></td>
                         <td>2 tickets</td>
                         <td>1 ticket</td>
                     </tr>
