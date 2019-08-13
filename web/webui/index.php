@@ -37,7 +37,8 @@
 
 			$dataI = date( 'd/m', strtotime($resultado["dataInicio"]));
 			$dataT = date( 'd/m', strtotime($resultado["dataTermino"]));
-
+			$horaI = date( 'H:i:s', strtotime($resultado["dataInicio"]));
+			$horaNova = gmdate('H:i:s', strtotime( $horaI ) - strtotime("1:00:00")  );
 		?>
 		<div class="row">
 			<div class="col colunaCustomCopy">
@@ -49,15 +50,15 @@
 						<a href="verPalpites.php?id=<?php echo $resultado["id"]?>" title="Ver palpites" class="btn btn-success txtBtn">Meus Palpites</a> 
 						<?php 
 							date_default_timezone_set('America/Sao_Paulo');
-							$hoje = date('d/m/Y H:i');
-							// echo $hoje;
-							if($hoje < $dataI){
+							$dataAgora = date('d/m/Y');
+							$horaAgora = date('H:i');
+							if($dataAgora >= $dataI && $horaAgora >= $horaNova ){
 						?>
 								<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
-						<?php 
+								<?php 
 							}else{
-						?>
-							<a href="" title="Dar meu palpite" class="btn btn-success txtBtn">Encerrada</a>
+								?>
+								<a href="ranking.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Ranking</a>
 						<?php 
 						}
 						?>

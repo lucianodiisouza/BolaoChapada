@@ -53,31 +53,31 @@
 			
 			$sqlJ = "SELECT * FROM jogos WHERE id = {$jogoJ}";
 			$qryJ = mysqli_query($conecta, $sqlJ);
-			$rstJ = mysqli_fetch_array($qryJ);
-			
+			$rstJ = mysqli_fetch_array($qryJ);			
 
 		?>
 		<div class="table-responsive">
-			<table class="table table-hover table-sm">
+			<table class="table table-sm">
 				<thead>
 					<tr>
-						<th scope="col">ID</th>
-						<th scope="col">Data</th>
-						<th scope="col"><?php echo $rstA['timeA']." x ".$rstA['timeB'] ?></th>
-						<th scope="col"><?php echo $rstB['timeA']." x ".$rstB['timeB'] ?></th>
-						<th scope="col"><?php echo $rstC['timeA']." x ".$rstC['timeB'] ?></th>
-						<th scope="col"><?php echo $rstD['timeA']." x ".$rstD['timeB'] ?></th>
-						<th scope="col"><?php echo $rstE['timeA']." x ".$rstE['timeB'] ?></th>
-						<th scope="col"><?php echo $rstF['timeA']." x ".$rstF['timeB'] ?></th>
-						<th scope="col"><?php echo $rstG['timeA']." x ".$rstG['timeB'] ?></th>
-						<th scope="col"><?php echo $rstH['timeA']." x ".$rstH['timeB'] ?></th>
-						<th scope="col"><?php echo $rstI['timeA']." x ".$rstI['timeB'] ?></th>
-						<th scope="col"><?php echo $rstJ['timeA']." x ".$rstJ['timeB'] ?></th>
+						<th class="thCustom">ID</th>
+						<th class="thCustom">Data</th>
+						<th class="thCustom"><?php echo $rstA['timeA']." x ".$rstA['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstB['timeA']." x ".$rstB['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstC['timeA']." x ".$rstC['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstD['timeA']." x ".$rstD['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstE['timeA']." x ".$rstE['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstF['timeA']." x ".$rstF['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstG['timeA']." x ".$rstG['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstH['timeA']." x ".$rstH['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstI['timeA']." x ".$rstI['timeB'] ?></th>
+						<th class="thCustom"><?php echo $rstJ['timeA']." x ".$rstJ['timeB'] ?></th>
+						<th class="thCustom">alterar palpite</th>
 					</tr>
 				</thead>
 				<tbody class="txtTabela">
 					<?php
-						$sql = "SELECT * FROM palpites  WHERE idUsuario = $userID AND idRodada = $rodadaID ORDER BY id DESC";
+						$sql = "SELECT * FROM palpites WHERE idUsuario = $userID AND idRodada = $rodadaID ORDER BY id DESC";
 						$qry = mysqli_query($conecta, $sql);
 						while ($linha = mysqli_fetch_array($qry)) {
 						
@@ -96,6 +96,20 @@
 						<td><?php echo $linha["jogoHMandante"]." x ".$linha["jogoHVisitante"]  ?></td>
 						<td><?php echo $linha["jogoIMandante"]." x ".$linha["jogoIVisitante"]  ?></td>
 						<td><?php echo $linha["jogoJMandante"]." x ".$linha["jogoJVisitante"]  ?></td>
+						<td>
+							<?php
+								$horaI = date( 'H:i:s', strtotime($rstInfoRodada["dataInicio"]));
+								$horaNova = gmdate('H:i:s', strtotime( $horaI ) - strtotime("1:00:00")  );
+								date_default_timezone_set('America/Sao_Paulo');
+								$dataAgora = date('d/m/Y');
+								$horaAgora = date('H:i');
+								if($dataAgora >= $dataI && $horaAgora >= $horaNova ){
+							?>
+								<p>Indisponível</p>
+							<?php } else { ?>
+								<a href="alteraPalpite.php?id=<?php echo $linha['id'] ?>">Alterar</a>
+							<?php } ?>
+						</td>
 					</tr>
 					<?php 
 						}

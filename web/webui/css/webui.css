@@ -129,3 +129,10 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.thCustom {
+    font-size: 1em;
+    width: 100px !important;
+}
+.table-responsive{
+    margin-top: 10px;    
+}
