@@ -52,13 +52,20 @@
 							date_default_timezone_set('America/Sao_Paulo');
 							$dataAgora = date('d/m/Y');
 							$horaAgora = date('H:i');
-							if($dataAgora >= $dataI && $horaAgora >= $horaNova ){
-						?>
+							if($dataAgora >= $dataI){
+								if($horaAgora >= $horaNova){
+									?> 
+									<!-- data hoje maior e hora hoje maior -->
+										<a href="ranking.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Ranking</a>
+									<?php 
+								} else { ?>
+									<!-- falta alumas horas -->
 								<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
-								<?php 
+								<?php }
 							}else{
-								?>
-								<a href="ranking.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Ranking</a>
+								?> 
+								<!--  faltam alguns dias -->
+								<a href="rodada.php?id=<?php echo $resultado["id"]?>" title="Dar meu palpite" class="btn btn-success txtBtn">Palpitar</a>
 						<?php 
 						}
 						?>
